@@ -12,17 +12,48 @@ sc01B:: ; [
  Send, {U+030C} ; háček
  return
 sc027:: ; semicolon
+ Send, ь ; back jer
+ return
++sc027:: ; Shift + semicolon
+ Send, Ь ; Back Jer
+ return
+sc07B & sc027:: ; semicolon
+ if GetKeyState("Shift") {
+    Send, {} ; 
+    return
+    }
+ else
  Send, {U+0328} ; ogonek
  return
 sc028:: ; colon
+ Send, ъ  ; front jer
+ return
++sc028:: ; Shift + colon
+ Send, Ъ ; Front Jer
+ return
+sc07B & sc028:: ; Shift + colon
+ if GetKeyState("Shift") {
+    Send, {} ;
+    return
+    }
+ else
  Send, {U+0307} ; dot above
  return
 sc02B:: ; ]
- Send, {U+030A} ; ring above
+ Send, ʒ
  return
 +sc02B:: ; shift + ]
- Send, {U+0325} ; ring below
+ Send, Ʒ
  return
+sc07B & sc02B:: ; ]
+ if GetKeyState("Shift") {
+    Send, {U+0325} ; ring below
+    return
+    }
+ else
+ Send, {U+030A} ; ring above
+ return
+
 sc033:: ; comma
  Send, {U+002C} ; comma
  return
@@ -159,11 +190,11 @@ sc07B & sc01A:: ;-> ô
  return
 sc07B & a:: ;-> á
  if GetKeyState("Shift") {
-    Send, {U+00C1} ;Á
+    Send, {U+00C1} ;
     return
  }
  else
- Send, {U+00E1} ;á
+ Send, {U+00E1} ;á
  return
 sc07B & s:: ;-> š
  if GetKeyState("Shift") {
@@ -294,6 +325,14 @@ sc07B & 1:: ;-> lengthened & nasalized
  }
  else
  Send, {U+02D0} ; lengthened
+ return
+sc07B & 0:: ;-> dotted circle & affricate
+ if GetKeyState("Shift") {
+    Send, {U+0361} ; affricate
+    return
+ }
+ else
+ Send, {U+25CC} ; dotted circle
  return
 sc07B & 7:: ;-> palatalized & velarized
  if GetKeyState("Shift") {
