@@ -10,13 +10,13 @@ Loop, %id%
   WinGetTitle, title, ahk_id %this_ID%
   ScriptPath := RegExReplace(title, " - AutoHotkey v" A_AhkVersion )
   SplitPath, ScriptPath, ShortName
-  If(ShortName="early_cyrillic_keyboard.ahk")
+  If(ShortName="cyrillic_early.ahk")
   {
     WinClose, %title%   
        exit
   }
 }
-Run, early_cyrillic_keyboard.ahk
+Run, cyrillic_early.ahk
 return
 
 F2:: ; letters & diacritics for Slavonic linguistics
@@ -28,13 +28,13 @@ Loop, %id%
   WinGetTitle, title, ahk_id %this_ID%
   ScriptPath := RegExReplace(title, " - AutoHotkey v" A_AhkVersion )
   SplitPath, ScriptPath, ShortName
-  If(ShortName="diacritics_keyboard.ahk")
+  If(ShortName="latin_diacritics.ahk")
   {
     WinClose, %title%   
        exit
   }
 }
-Run, diacritics_keyboard.ahk
+Run, latin_diacritics.ahk
 return
 
 F3:: ; modern cyrillic
@@ -46,13 +46,13 @@ Loop, %id%
   WinGetTitle, title, ahk_id %this_ID%
   ScriptPath := RegExReplace(title, " - AutoHotkey v" A_AhkVersion )
   SplitPath, ScriptPath, ShortName
-  If(ShortName="modern_cyrillic_keyboard.ahk")
+  If(ShortName="cyrillic_modern.ahk")
   {
     WinClose, %title%
        exit
   }
 }
-Run, modern_cyrillic_keyboard.ahk
+Run, cyrillic_modern.ahk
 return
 
 Shift & F1:: ; glagolitic
@@ -64,11 +64,11 @@ Loop, %id%
   WinGetTitle, title, ahk_id %this_ID%
   ScriptPath := RegExReplace(title, " - AutoHotkey v" A_AhkVersion )
   SplitPath, ScriptPath, ShortName
-  If(ShortName="glagolitic_keyboard.ahk")
+  If(ShortName="glagolitic.ahk")
   {
     WinClose, %title%
        exit
   }
 }
-Run, glagolitic_keyboard.ahk
+Run, glagolitic.ahk
 return
