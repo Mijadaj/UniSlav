@@ -260,11 +260,11 @@ sc07B & t:: ;-> little yus
  return
 sc07B & y:: ;-> {}
  if GetKeyState("Shift") {
-    Send, {} ;
+    Send, {U+A658} ;Ꙙ
     return
     }
  else
- Send, {} ;
+ Send, {U+A659} ;ꙙ
  return
 sc07B & u:: ;-> tshe
  if GetKeyState("Shift") {
@@ -300,11 +300,11 @@ sc07B & p:: ;-> dze
  return
 sc07B & sc01A:: ;-> {}
  if GetKeyState("Shift") {
-    Send, {} ;
+    Send, {U+A640} ;Ꙁ
     return
     }
  else
- Send, {} ;
+ Send, {U+A641} ;ꙁ
  return
 sc07B & sc01B:: ;-> {}
  if GetKeyState("Shift") {
@@ -404,11 +404,11 @@ sc07B & sc028:: ;-> iotified little yus
  return
 sc07B & sc02B:: ;-> {}
  if GetKeyState("Shift") {
-    Send, {} ;
+    Send, {U+A65C} ;Ꙝ
     return
     }
  else
- Send, {} ;
+ Send, {U+A65D} ;ꙝ
  return
 sc07B & z:: ;-> {}
  if GetKeyState("Shift") {
