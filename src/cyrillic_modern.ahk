@@ -498,3 +498,27 @@ sc07B & sc073:: ;-> {}
  else
  Send, {} ;
  return
+sc07B & 2:: ;-> кавычки-left
+ if GetKeyState("Shift") {
+    Send, {U+201C} ; “ left double quote
+    return
+ }
+ else
+ Send, {U+00AB} ; «
+ return
+sc07B & 3:: ;-> кавычки-right
+ if GetKeyState("Shift") {
+    Send, {U+201D} ; ” right double quote
+    return
+ }
+ else
+ Send, {U+00BB} ; »
+ return
+sc07B & 7:: ;-> prime & apostrophe
+ if GetKeyState("Shift") {
+    Send, {U+02B9} ; ʹ prime
+    return
+ }
+ else
+ Send, {U+2019} ; ’ apostrophe
+ return

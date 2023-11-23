@@ -1,7 +1,7 @@
 ﻿#Persistent
 DetectHiddenWindows, ON
 
-F1:: ; early cyrillic
+Ctrl & 1:: ; early cyrillic
 list =
 WinGet, id, list, ahk_class AutoHotkey
 Loop, %id%
@@ -19,7 +19,7 @@ Loop, %id%
 Run, cyrillic_early.ahk
 return
 
-F2:: ; letters & diacritics for Slavonic linguistics
+Ctrl & 2:: ; letters & diacritics for Slavonic linguistics
 list =
 WinGet, id, list, ahk_class AutoHotkey
 Loop, %id%
@@ -37,7 +37,7 @@ Loop, %id%
 Run, latin_diacritics.ahk
 return
 
-F3:: ; modern cyrillic
+Ctrl & 3:: ; modern cyrillic
 list =
 WinGet, id, list, ahk_class AutoHotkey
 Loop, %id%

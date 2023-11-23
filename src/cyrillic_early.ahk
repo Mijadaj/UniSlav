@@ -213,7 +213,7 @@ Space::
  Send, {U+002E} ;period
  return
 +sc073:: ;backslash
- Send, {U+0484} ;kamora
+ Send, {U+0484} ;soft sign
  return
 
 
@@ -226,13 +226,13 @@ sc07B & q:: ;-> iota
  else
  Send, {U+A647} ;ꙇ
  return
-sc07B & w:: ;-> {}
+sc07B & w:: ;-> uk(alternative)
  if GetKeyState("Shift") {
-    Send, {} ;
+    Send, {U+0443} ;у
     return
     }
  else
- Send, {} ;
+ Send, {U+1C82}{U+0443} ;ᲂу
  return
 sc07B & e:: ;-> uk(vertical)
  if GetKeyState("Shift") {
