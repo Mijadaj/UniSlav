@@ -1,3 +1,4 @@
+106/109 layout	scancode
 半角/全角	sc029
 1	sc002
 2	sc003
@@ -40,7 +41,7 @@ L	sc026
 :	sc028
 ]	sc02B
 
-Shift	sc02A
+LShift	sc02A
 Z	sc02C
 X	sc02D
 C	sc02E
@@ -52,16 +53,17 @@ M	sc032
 .	sc034
 /	sc035
 \	sc073
-Shift	sc036
+RShift	sc036
 
-Ctrl	sc01D
-Alt	sc038
+LCtrl	sc01D
+LWin	sc15B
+LAlt	sc038
 無変換	sc07B
-(space)	sc039
+Space	sc039
 変換	sc079
 ひらがな	sc070
-Alt	E0 38
-Ctrl	E0 1D
+AppsKey	sc15D
+RCtrl	sc11D
 
 F1	sc03B
 F2	sc03C
@@ -75,7 +77,3 @@ F9	sc043
 F10	sc044
 F11	sc057
 F12	sc058
-
-(Left Windows)	E0 5B
-(Right Windows)	E0 5C
-(Application)	E0 5D

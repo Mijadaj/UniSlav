@@ -1,27 +1,83 @@
-﻿;row 1
+;row0
+1::
+ Send, {U+0268} ;ɨ
+ return
++1::
+ Send, {U+} ;
+ return
+2::
+ Send, {U+00F8} ;ø
+ return
++2::
+ Send, {U+} ;
+ return
+3::
+ Send, {U+025C} ;ɜ
+ return
++3::
+ Send, {U+} ;
+ return
+4::
+ Send, {U+027E} ;ɾ
+ return
++4::
+ Send, {U+} ;
+ return
+5::
+ Send, {U+026B} ;ɫ
+ return
++5::
+ Send, {U+} ;
+ return
+6::
+ Send, {U+0250} ;ɐ
+ return
++6::
+ Send, {U+0276} ;ɶ
+ return
+7::
+ Send, {U+0264} ;ɤ
+ return
++7::
+ Send, {U+02B2} ;ʲ
+ return
+8::
+ Send, {U+0275} ;ɵ
+ return
++8::
+ Send, {U+} ;
+ return
+9::
+ Send, {U+0153} ;œ
+ return
++9::
+ Send, {U+} ;
+ return
+
+;row 1
 sc07B & 1:: ;-> lengthened & nasalized
  if GetKeyState("Shift") {
-    Send, {U+0303} ; nasalized
+    Send, {U+} ;
     return
  }
  else
- Send, {U+02D0} ; lengthened
+ Send, {U+} ;
  return
 sc07B & 2:: ;-> кавычки-left
  if GetKeyState("Shift") {
-    Send, {U+201C} ; left double quote
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00AB} ; <<
+ Send, {U+} ;
  return
 sc07B & 3:: ;-> кавычки-right
  if GetKeyState("Shift") {
-    Send, {U+201D} ; right double quote
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00BB} ; >>
+ Send, {U+} ;
  return
 sc07B & 4:: ;-> 
  if GetKeyState("Shift") {
@@ -49,19 +105,19 @@ sc07B & 6:: ;->
  return
 sc07B & 7:: ;-> palatalized & velarized
  if GetKeyState("Shift") {
-    Send, {U+02E0} ;velarized
+    Send, {U+} ;
     return
  }
  else
- Send, {U+02B2} ; palatalized
+ Send, {U+} ;
  return
 sc07B & 8:: ;-> prime & apostrophe
  if GetKeyState("Shift") {
-    Send, {U+02B9} ; ʹ prime
+    Send, {U+} ;
     return
  }
  else
- Send, {U+2019} ; ’ apostrophe
+ Send, {U+} ;
  return
 sc07B & 9:: ;-> 
  if GetKeyState("Shift") {
@@ -73,338 +129,406 @@ sc07B & 9:: ;->
  return
 sc07B & 0:: ;-> dotted circle & affricate
  if GetKeyState("Shift") {
-    Send, {U+0361} ; affricate
+    Send, {U+} ;
     return
  }
  else
- Send, {U+25CC} ; dotted circle
+ Send, {U+0361} ;affricate
  return
 sc07B & sc00D:: ; ^
  if GetKeyState("Shift") {
-    Send, {U+0303} ; tilde
+    Send, {U+} ;
     return
     }
  else
- Send, {U+0308} ; diaeresis
+ Send, {U+} ;
  return
 sc07B & sc07D:: ; \
  if GetKeyState("Shift") {
-    Send, {U+0306} ; breve
+    Send, {U+} ;
     return
     }
  else
- Send, {U+0304} ; macron
+ Send, {U+} ;
  return
 
 ;row 2
-q::
- Send, {U+0119} ;ę
- return
 +q::
- Send, {U+0118} ;Ę
+ Send, {U+0252} ;
  return
 sc07B & q:: ;
  if GetKeyState("Shift") {
-    Send, {U+0104} ;Ą
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0105} ;ą
+ Send, {U+} ;
+ return
++w::
+ Send, {U+028D} ;
  return
 sc07B & w:: ;
  if GetKeyState("Shift") {
-    Send, {U+00C9} ;É
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00E9} ;é
+ Send, {U+} ;
+ return
++e::
+ Send, {U+025B} ;
  return
 sc07B & e:: ;
  if GetKeyState("Shift") {
-    Send, {U+011A} ;Ě
+    Send, {U+} ;
     return
  }
  else
- Send, {U+011B} ;ě
+ Send, {U+} ;
+ return
++r::
+ Send, {U+0281} ;
  return
 sc07B & r:: ;
  if GetKeyState("Shift") {
-    Send, {U+0158} ;Ř
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0159} ;ř
+ Send, {U+} ;
+ return
++t::
+ Send, {U+03B8} ;
  return
 sc07B & t:: ;
  if GetKeyState("Shift") {
-    Send, {U+0164} ;Ť
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0165} ;ť
+ Send, {U+} ;
+ return
++y::
+ Send, {U+028F} ;
  return
 sc07B & y:: ;
  if GetKeyState("Shift") {
-    Send, {U+00DD} ;Ý
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00FD} ;ý
+ Send, {U+} ;
+ return
++u::
+ Send, {U+028A} ;
  return
 sc07B & u:: ;
  if GetKeyState("Shift") {
-    Send, {U+16E} ;Ů
+    Send, {U+} ;
     return
  }
  else
- Send, {U+016F} ;ů
+ Send, {U+} ;
+ return
++i::
+ Send, {U+026A} ;
  return
 sc07B & i:: ;
  if GetKeyState("Shift") {
-    Send, {U+00CD} ;Í
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00ED} ;í
+ Send, {U+} ;
+ return
++o::
+ Send, {U+0254} ;
  return
 sc07B & o:: ;
  if GetKeyState("Shift") {
-    Send, {U+00D3} ;Ó
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00F3} ;ó
+ Send, {U+} ;
+ return
++p::
+ Send, {U+028B} ;
  return
 sc07B & p:: ;
  if GetKeyState("Shift") {
-    Send, {U+01EA} ;Ǫ
+    Send, {U+} ;
     return
  }
  else
- Send, {U+01EB} ;ǫ
+ Send, {U+} ;
  return
 sc01A:: ; @
- Send, {U+0301} ; acute accent
+ Send, {U+0259} ;
+ return
+Shift & sc01A:: ; @
+ Send, {U+02DE} ; ˞
  return
 sc07B & sc01A:: ;@
  if GetKeyState("Shift") {
-    Send, {U+00D4} ;Ô
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00F4} ;ô
+ Send, {U+} ;
  return
-sc01B:: ; [
- Send, {U+030C} ; háček
+Shift & sc01B:: ; [
+ Send, {U+00E6} ; æ
  return
 sc07B & sc01B:: ;[
  if GetKeyState("Shift") {
-    Send, {U+0176} ;Ŷ
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0177} ;ŷ
+ Send, {U+} ;
  return
 
 ;row 3
++a::
+ Send, {U+0251} ;ɑ
+ return
 sc07B & a:: ;
  if GetKeyState("Shift") {
     Send, {U+00C1} ;
     return
  }
  else
- Send, {U+00E1} ;á
+ Send, {U+} ;
+ return
++s::
+ Send, {U+0283} ;ʃ
  return
 sc07B & s:: ;
  if GetKeyState("Shift") {
-    Send, {U+0160} ;Š
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0161} ;š
+ Send, {U+} ;
+ return
++d::
+ Send, {U+00F0} ;ð
  return
 sc07B & d:: ;
  if GetKeyState("Shift") {
-    Send, {U+010E} ;Ď
+    Send, {U+} ;
     return
  }
  else
- Send, {U+010F} ;ď
+ Send, {U+} ;
+ return
++f::
+ Send, {U+0271} ;ɱ
  return
 sc07B & f:: ;
  if GetKeyState("Shift") {
-    Send, {U+0110} ;Đ
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0111} ;đ
+ Send, {U+} ;
+ return
++g::
+ Send, {U+0263} ;ɣ
  return
 sc07B & g:: ;
  if GetKeyState("Shift") {
-    Send, {U+01F4} ;Ǵ
+    Send, {U+} ;
     return
  }
  else
- Send, {U+01F5} ;ǵ
+ Send, {U+} ;
+ return
++h::
+ Send, {U+0265} ;ɥ
  return
 sc07B & h:: ;
  if GetKeyState("Shift") {
-    Send, {U+015A} ;Ś
+    Send, {U+} ;
     return
  }
  else
- Send, {U+015B} ;ś
+ Send, {U+} ;
+ return
++j::
+ Send, {U+0272} ;ɲ
  return
 sc07B & j:: ;
  if GetKeyState("Shift") {
-    Send, {U+00DA} ;Ú
+    Send, {U+} ;
     return
  }
  else
- Send, {U+00FA} ;ú
+ Send, {U+} ;
+ return
++k::
+ Send, {U+026C} ;ɬ
  return
 sc07B & k:: ;
  if GetKeyState("Shift") {
-    Send, {U+1E30} ;Ḱ
+    Send, {U+} ;
     return
  }
  else
- Send, {U+1E31} ;ḱ
+ Send, {U+} ;
+ return
++l::
+ Send, {U+028E} ;ʎ
  return
 sc07B & l:: ;
  if GetKeyState("Shift") {
-    Send, {U+0141} ;Ł
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0142} ;ł
+ Send, {U+} ;
  return
 sc027:: ; semicolon
- Send, {U+044C} ;ь
- return
-+sc027:: ; Shift + semicolon
- Send, {U+042C} ;Ь
+ Send, {U+} ;
  return
 sc07B & sc027:: ; semicolon
  if GetKeyState("Shift") {
-    Send, {U+00C4} ; Ä
+    Send, {U+} ;
     return
     }
  else
- Send, {U+00E4} ; ä
+ Send, {U+} ;
  return
 sc028:: ; colon
- Send, {U+044A} ;ъ
- return
-+sc028:: ; Shift + colon
- Send, {U+042A} ;Ъ
+ Send, {U+02D0} ;
  return
 sc07B & sc028:: ; colon
  if GetKeyState("Shift") {
-    Send, {U+00CB} ; Ä
+    Send, {U+} ;
     return
     }
  else
- Send, {U+00EB} ; ä
- return
-sc02B:: ; ]
- Send, ʒ
+ Send, {U+} ;
  return
 +sc02B:: ; shift + ]
- Send, Ʒ
+ Send, {U+0289} ;ʉ
  return
 sc07B & sc02B:: ; ]}
  if GetKeyState("Shift") {
-    Send, {U+00C4} ; Ä
+    Send, {U+} ;
     return
     }
  else
- Send, {U+00E4} ; ä
+ Send, {U+} ;
  return
 
 ;row 4
++z::
+ Send, {U+0292} ;
+ return
 sc07B & z:: ;
  if GetKeyState("Shift") {
-    Send, {U+017D} ;Ž
+    Send, {U+} ;
     return
  }
  else
- Send, {U+017E} ;ž
+ Send, {U+} ;
+ return
++x::
+ Send, {U+03C7} ;
  return
 sc07B & x:: ;
  if GetKeyState("Shift") {
-    Send, {U+017B} ;Ż
+    Send, {U+} ;
     return
  }
  else
- Send, {U+017C} ;ż
+ Send, {U+} ;
+ return
++c::
+ Send, {U+00E7} ;
  return
 sc07B & c:: ;
  if GetKeyState("Shift") {
-    Send, {U+010C} ;Č
+    Send, {U+} ;
     return
  }
  else
- Send, {U+010D} ;č
+ Send, {U+} ;
+ return
++v::
+ Send, {U+028C} ;
  return
 sc07B & v:: ;
  if GetKeyState("Shift") {
-    Send, {U+0106} ;Ć
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0107} ;ć
+ Send, {U+} ;
+ return
++b::
+ Send, {U+03B2} ;
  return
 sc07B & b:: ;
  if GetKeyState("Shift") {
-    Send, {U+0179} ;Ź
+    Send, {U+} ;
     return
  }
  else
- Send, {U+017A} ;ź
+ Send, {U+} ;
+ return
++n::
+ Send, {U+014B} ;
  return
 sc07B & n:: ;
  if GetKeyState("Shift") {
-    Send, {U+0147} ;Ň
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0148} ;ň
+ Send, {U+} ;
+ return
++m::
+ Send, {U+026F} ;
  return
 sc07B & m:: ;
  if GetKeyState("Shift") {
-    Send, {U+0143} ;Ń
+    Send, {U+} ;
     return
  }
  else
- Send, {U+0144} ;ń
+ Send, {U+} ;
  return
 sc033:: ; comma
- Send, {U+002C} ; comma
+ Send, {U+} ;
  return
 sc034:: ; period
- Send, {U+002E} ; period
+ Send, {U+} ;
  return
 sc07B & sc033:: ; comma
  if GetKeyState("Shift") {
-   Send, {U+003C} ; <
+   Send, {U+} ;
  }
  else
- Send, {U+0300} ; grave accent
+ Send, {U+} ;
  return
 sc07B & sc034:: ; period
  if GetKeyState("Shift") {
-   Send, {U+003E} ; >
+   Send, {U+} ;
  }
  else
- Send, {U+0302} ; circumflex
+ Send, {U+} ;
  return
-sc07B & sc035:: ; slash
++sc035:: ;?
+ Send, {U+0294} ;
+ return
+sc07B & sc035:: ; ?
  if GetKeyState("Shift") {
-    Send, {U+002F} ; slash
+    Send, {U+} ;
     return
     }
  else
- Send, {U+030F} ; double grave accent
+ Send, {U+} ;
  return
-; Send, {U+0307} ; dot above
