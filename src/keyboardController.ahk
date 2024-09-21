@@ -71,7 +71,7 @@ switchKeyboard(new,old) {
         Run(scriptC, , , &pidC)
         currentScript := true
         SetTimer(ToolTip,-1500)
-        ToolTip("Church Cyrillic")
+        ToolTip("Early Cyrillic")
     }
     else if WinExist(scriptC) {
         WinClose(scriptC)
