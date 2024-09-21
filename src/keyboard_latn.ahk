@@ -1,476 +1,431 @@
-﻿#Persistent
-#KeyHistory, 16
-global ModSet := {"^^": "^", "^-": "-", "^@": "@", "^[": "[", "^.": ".", "^]": "]"}
-
-SetTimer, Display2PriorKey, 50
-global PriorKeys := []
-ih := InputHook()
-ih.KeyOpt("{All}", "NV")
-ih.KeyOpt("{vkE7}{sc000}", "-N")
-ih.OnKeyDown := Func("priorKeyHandler")
-ih.BackspaceIsUndo := false
-ih.Start()
-
-priorKeyHandler(ih, vk, sc) {
-	global PriorKeys
-
-	vk := Format("vk{:x}", vk)
-	sc := Format("sc{:x}", sc)
-	name := GetKeyName(vk sc)
-
-	PriorKeys.InsertAt(1, {name: (name != "") ? name : "undefined", vk: vk, sc: sc})
-   PriorKeys.RemoveAt(17, 2)
-}
-Display2PriorKey:
-	ToolTip, % PriorKeys[1].name " , " PriorKeys[2].name "`n" A_ThisHotKey " , " A_PriorHotKey
-return
-
-;row 1
+﻿;row 1
 sc07B & 1:: ;-> lengthened & nasalized
- if GetKeyState("Shift") {
-    Send, {U+0303} ; nasalized
-    return
- }
- else
- Send, {U+02D0} ; lengthened
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0303}") ; nasalized
+   else
+      Send("{U+02D0}") ; lengthened
+}
 sc07B & 2:: ;-> кавычки-left
- if GetKeyState("Shift") {
-    Send, {U+00AB} ; «
-    return
- }
- else
- Send, {U+201C} ; “
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00AB}") ; «
+   else
+      Send("{U+201C}") ; “
+}
 sc07B & 3:: ;-> кавычки-right
- if GetKeyState("Shift") {
-    Send, {U+00BB} ; »
-    return
- }
- else
- Send, {U+201D} ; ”
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00BB}") ; »
+   else
+      Send("{U+201D}") ; ”
+}
 sc07B & 4:: ;-> 
- if GetKeyState("Shift") {
-    Send, {U+} ; 
-    return
- }
- else
- Send, {U+} ; 
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+}") ; 
+   else
+      Send("{U+}") ; 
+}
 sc07B & 5:: ;-> 
- if GetKeyState("Shift") {
-    Send, {U+} ; aˊa´
-    return
- }
- else
- Send, {U+} ; 
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+}") ; aˊa´
+   else
+      Send("{U+}") ; 
+}
 sc07B & 6:: ;-> 
- if GetKeyState("Shift") {
-    Send, {U+} ; 
-    return
- }
- else
- Send, {U+} ; 
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+}") ; 
+   else
+      Send("{U+}") ; 
+}
 sc07B & 7:: ;-> palatalized & velarized
- if GetKeyState("Shift") {
-    Send, {U+02E0} ;◌ˠ
-    return
- }
- else
- Send, {U+02B2} ; ◌ʲ
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+02E0}") ;◌ˠ
+   else
+      Send("{U+02B2}") ; ◌ʲ
+}
 sc07B & 8:: ;-> prime & apostrophe
- if GetKeyState("Shift") {
-    Send, {U+02B9} ; ʹ prime (modifier)
-    return
- }
- else
- Send, {U+2019} ; ’ right single quotation
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+02B9}") ; ʹ prime (modifier)
+   else
+      Send("{U+2019}") ; ’ right single quotation
+}
 sc07B & 9:: ;-> 
- if GetKeyState("Shift") {
-    Send, {U+} ; 
-    return
- }
- else
- Send, {U+} ; 
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+}") ; 
+   else
+      Send("{U+}") ; 
+}
 sc07B & 0:: ;-> dotted circle & affricate
- if GetKeyState("Shift") {
-    Send, {U+0361} ; affricate
-    return
+{
+   if GetKeyState("Shift")
+      Send("{U+0361}") ; affricate
+   else
+      Send("{U+25CC}") ; dotted circle
  }
- else
- Send, {U+25CC} ; dotted circle
- return
--::Send, {U+2011} ; non-breaking hyphen
+-::Send("{U+2011}") ; non-breaking hyphen
 sc07B & sc00C:: ;-> em dash
- if GetKeyState("Shift") {
-    Send, {U+2013} ; en dash
-    return
- }
- else
- Send, {U+2014} ; em dash
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+2013}") ; en dash
+   else
+      Send("{U+2014}") ; em dash
+}
 sc07B & sc00D:: ; ^
- if GetKeyState("Shift") {
-    Send, {U+042C} ; Ь
-    return
-    }
- else
- Send, {U+044C} ; ь
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+042C}") ; Ь
+   else
+      Send("{U+044C}") ; ь
+}
 sc07B & sc07D:: ; \
- if GetKeyState("Shift") {
-    Send, {U+042A} ; Ъ
-    return
-    }
- else
- Send, {U+044A} ; ъ
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+042A}") ; Ъ
+   else
+      Send("{U+044A}") ; ъ
+ }
 
 ;row 2
-q::Send, {U+0119} ;ę
-+q::Send, {U+0118} ;Ę
+q::Send("{U+0119}") ;ę
++q::Send("{U+0118}") ;Ę
 sc07B & q:: ;
- if GetKeyState("Shift") {
-    Send, {U+0104} ;Ą
-    return
- }
- else
- Send, {U+0105} ;ą
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0104}") ;Ą
+   else
+      Send("{U+0105}") ;ą
+}
 sc07B & w:: ;
- if GetKeyState("Shift") {
-    Send, {U+00C9} ;É
-    return
- }
- else
- Send, {U+00E9} ;é
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00C9}") ;É
+   else
+      Send("{U+00E9}") ;é
+}
 sc07B & e:: ;
- if GetKeyState("Shift") {
-    Send, {U+011A} ;Ě
-    return
- }
- else
- Send, {U+011B} ;ě
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+011A}") ;Ě
+   else
+      Send("{U+011B}") ;ě
+}
 sc07B & r:: ;
- if GetKeyState("Shift") {
-    Send, {U+0158} ;Ř
-    return
- }
- else
- Send, {U+0159} ;ř
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0158}") ;Ř
+   else
+      Send("{U+0159}") ;ř
+}
 sc07B & t:: ;
- if GetKeyState("Shift") {
-    Send, {U+0164} ;Ť
-    return
- }
- else
- Send, {U+0165} ;ť
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0164}") ;Ť
+   else
+      Send("{U+0165}") ;ť
+}
 sc07B & y:: ;
- if GetKeyState("Shift") {
-    Send, {U+00DD} ;Ý
-    return
- }
- else
- Send, {U+00FD} ;ý
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00DD}") ;Ý
+   else
+      Send("{U+00FD}") ;ý
+}
 sc07B & u:: ;
- if GetKeyState("Shift") {
-    Send, {U+00DA} ;Ú
-    return
- }
- else
- Send, {U+00FA} ;ú
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00DA}") ;Ú
+   else
+      Send("{U+00FA}") ;ú
+}
 sc07B & i:: ;
- if GetKeyState("Shift") {
-    Send, {U+00CD} ;Í
-    return
- }
- else
- Send, {U+00ED} ;í
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00CD}") ;Í
+   else
+      Send("{U+00ED}") ;í
+}
 sc07B & o:: ;
- if GetKeyState("Shift") {
-    Send, {U+00D3} ;Ó
-    return
- }
- else
- Send, {U+00F3} ;ó
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00D3}") ;Ó
+   else
+      Send("{U+00F3}") ;ó
+}
 sc07B & p:: ;
- if GetKeyState("Shift") {
-    Send, {U+01EA} ;Ǫ
-    return
- }
- else
- Send, {U+01EB} ;ǫ
- return
-\:: ; @
- Send, {U+0301} ; acute accent
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+01EA}") ;Ǫ
+   else
+      Send("{U+01EB}") ;ǫ
+}
+sc01A::Send("{U+0301}") ; acute accent
+
 sc07B & sc01A:: ;@
- if GetKeyState("Shift") {
-    Send, {U+00D4} ;Ô
-    return
- }
- else
- Send, {U+00F4} ;ô
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00D4}") ;Ô
+   else
+      Send("{U+00F4}") ;ô
+}
 sc07B & sc01B:: ;[
- if GetKeyState("Shift") {
-    Send, {U+0176} ;Ŷ
-    return
+{
+   if GetKeyState("Shift")
+      Send("{U+0176}") ;Ŷ
+   else
+      Send("{U+0177}") ;ŷ
  }
- else
- Send, {U+0177} ;ŷ
- return
 
 ;row 3
 sc07B & a:: ;
- if GetKeyState("Ctrl") {
-    Send, {U+00C1} ;Á
-    return
- }
- else
- Send, {U+00E1} ;á
- return
+{
+   if GetKeyState("Ctrl")
+      Send("{U+00C1}") ;Á
+   else
+      Send("{U+00E1}") ;á
+}
 sc07B & s:: ;
- if GetKeyState("Shift") {
-    Send, {U+0160} ;Š
-    return
- }
- else
- Send, {U+0161} ;š
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0160}") ;Š
+   else
+      Send("{U+0161}") ;š
+}
 sc07B & d:: ;
- if GetKeyState("Shift") {
-    Send, {U+010E} ;Ď
-    return
- }
- else
- Send, {U+010F} ;ď
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+010E}") ;Ď
+   else
+      Send("{U+010F}") ;ď
+}
 sc07B & f:: ;
- if GetKeyState("Shift") {
-    Send, {U+0110} ;Đ
-    return
- }
- else
- Send, {U+0111} ;đ
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0110}") ;Đ
+   else
+      Send("{U+0111}") ;đ
+}
 sc07B & g:: ;
- if GetKeyState("Shift") {
-    Send, {U+01F4} ;Ǵ
-    return
- }
- else
- Send, {U+01F5} ;ǵ
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+01F4}") ;Ǵ
+   else
+      Send("{U+01F5}") ;ǵ
+}
 sc07B & h:: ;
- if GetKeyState("Shift") {
-    Send, {U+015A} ;Ś
-    return
- }
- else
- Send, {U+015B} ;ś
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+015A}") ;Ś
+   else
+      Send("{U+015B}") ;ś
+}
 sc07B & j:: ;
- if GetKeyState("Shift") {
-    Send, {U+16E} ;Ů
-    return
- }
- else
- Send, {U+016F} ;ů
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+16E}") ;Ů
+   else
+      Send("{U+016F}") ;ů
+}
 sc07B & k:: ;
- if GetKeyState("Shift") {
-    Send, {U+1E30} ;Ḱ
-    return
- }
- else
- Send, {U+1E31} ;ḱ
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+1E30}") ;Ḱ
+   else
+      Send("{U+1E31}") ;ḱ
+}
 sc07B & l:: ;
- if GetKeyState("Shift") {
-    Send, {U+0141} ;Ł
-    return
- }
- else
- Send, {U+0142} ;ł
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+0141}") ;Ł
+   else
+      Send("{U+0142}") ;ł
+}
 sc07B & sc027:: ; semicolon
- if GetKeyState("Shift") {
-    Send, {U+00C4} ; Ä
-    return
-    }
- else
- Send, {U+00E4} ; ä
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00C4}") ; Ä
+   else
+      Send("{U+00E4}") ; ä
+}
 sc07B & sc028:: ; colon
- if GetKeyState("Shift") {
-    Send, {U+00CB} ; Ä
-    return
-    }
- else
- Send, {U+00EB} ; ä
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00CB}") ; Ä
+   else
+      Send("{U+00EB}") ; ä
+}
 sc07B & sc02B:: ; ]}
- if GetKeyState("Shift") {
-    Send, {U+00CF} ; Ï
-    return
-    }
- else
- Send, {U+00EF} ; ï
- return
+{
+   if GetKeyState("Shift")
+      Send("{U+00CF}") ; Ï
+   else
+      Send("{U+00EF}") ; ï
+ }
 
 ;row 4
 sc07B & z:: ;
- if GetKeyState("Shift") {
-    Send, {U+017D} ;Ž
-    return
- }
- else
- Send, {U+017E} ;ž
- return
-sc07B & x:: ;
- if GetKeyState("Shift") {
-    Send, {U+017B} ;Ż
-    return
- }
- else
- Send, {U+017C} ;ż
- return
-sc07B & c:: ;
- if GetKeyState("Shift") {
-    Send, {U+010C} ;Č
-    return
- }
- else
- Send, {U+010D} ;č
- return
-sc07B & v:: ;
- if GetKeyState("Shift") {
-    Send, {U+0106} ;Ć
-    return
- }
- else
- Send, {U+0107} ;ć
- return
-sc07B & b:: ;
- if GetKeyState("Shift") {
-    Send, {U+0179} ;Ź
-    return
- }
- else
- Send, {U+017A} ;ź
- return
-sc07B & n:: ;
- if GetKeyState("Shift") {
-    Send, {U+0147} ;Ň
-    return
- }
- else
- Send, {U+0148} ;ň
- return
-sc07B & m:: ;
- if GetKeyState("Shift") {
-    Send, {U+0143} ;Ń
-    return
- }
- else
- Send, {U+0144} ;ń
- return
-,::Send, {U+002C} ; comma
-sc07B & ,:: ; comma
- if GetKeyState("Shift") {
-   Send, {U+0139} ; Ĺ
- }
- else
- Send, {U+013A} ; ĺ
- return
-sc07B & .:: ; period
- if GetKeyState("Shift") {
-   Send, {U+0154} ; Ŕ
- }
- else
- Send, {U+0155} ; ŕ
- return
-sc07B & /:: ; slash
- if GetKeyState("Shift") {
-    Send, {U+01B7} ; Ʒ
-    return
-    }
- else
- Send, {U+0292} ; ʒ
- return
-sc07B & sc073:: ; back slash
- if GetKeyState("Shift") {
-    Send, {U+00CE} ; Î
-    return
-    }
- else
- Send, {U+00EE} ; î
- return
-
-^^:: ; arch
-^-:: ; macron
-^@:: ; grave
-^[:: ; double grave
-^.:: ; dot below
-^]:: ; schwa, etc.
-ThisMod := A_ThisHotKey
-KeyWait, Control
-KeyWait, % ModSet[ThisMod]
-;Send, {text}%A_PriorHotKey%%A_ThisHotKey% ;
-;return
-pk1 := PriorKeys[1].name
-pk2 := PriorKeys[2].name
-pk3 := PriorKeys[3].name
-   CharArray := {"a^^": "ȃ", "a^-": "ā", "a^@": "à", "a^[": "ȁ", "a^.": "ạ"
-                ,"e^^": "ȇ", "e^-": "ē", "e^@": "è", "e^[": "ȅ", "e^.": "ẹ", "e^]": "ə"
-                ,"i^^": "ȋ", "i^-": "ī", "i^@": "ì", "i^[": "ȉ", "i^.": "ị"
-                ,"o^^": "ȏ", "o^-": "ō", "o^@": "ò", "o^[": "ȍ", "o^.": "ọ"
-                ,"u^^": "ȗ", "u^-": "ū", "u^@": "ù", "u^[": "ȕ", "u^.": "ụ"
-                ,"r^^": "ȓ", "r^[": "ȑ", "r^.": "ṛ"
-                ,"^^": "{U+0311}", "^-": "{U+0304}", "^@": "{U+0300}", "^[": "{U+030F}"}
-   ;ListHotKeys
-   ih := InputHook("L1")
-   ih.Start()
-   ih.Wait()
-   char := ih.Input
-   ;Send, {Text}char: %char% , ThisMod: %ThisMod% ; 
-   if !CharArray[char . ThisMod]
-   {
-      Send, {Blind}{%char%} 
-      Send, % CharArray[ThisMod] ; 
-      return
-   }
+{
+   if GetKeyState("Shift")
+      Send("{U+017D}") ;Ž
    else
-   {
-      Send, % CharArray[char . ThisMod] ; 
-      return
-   }
-;+e::
-;+o::
-;CharArray := {"+e^.": "Ẹ", "+e^@": "È", "+e^^": "Ə", "+e": "{U+0045}"
-;             ,"+o^.": "Ọ", "+o^@": "Ò", "+o": "{U+004F}"}
-; if KeyArray[A_PriorHotKey] = PriorKeys[3].name ; if the hotkey followed immediately after Ctrl + whatever
-; {
-;   Send, % CharArray[A_ThisHotKey . A_PriorHotKey]
-;   return
-; }
-; else
-; {
-;   Send, % CharArray[A_ThisHotKey]
-;   return
-; }
+      Send("{U+017E}") ;ž
+}
+sc07B & x:: ;
+{
+   if GetKeyState("Shift")
+      Send("{U+017B}") ;Ż
+   else
+      Send("{U+017C}") ;ż
+}
+sc07B & c:: ;
+{
+   if GetKeyState("Shift")
+      Send("{U+010C}") ;Č
+   else
+      Send("{U+010D}") ;č
+}
+sc07B & v:: ;
+{
+   if GetKeyState("Shift")
+      Send("{U+0106}") ;Ć
+   else
+      Send("{U+0107}") ;ć
+}
+sc07B & b:: ;
+{
+   if GetKeyState("Shift")
+      Send("{U+0179}") ;Ź
+   else
+      Send("{U+017A}") ;ź
+}
+sc07B & n:: ;
+{
+   if GetKeyState("Shift")
+      Send("{U+0147}") ;Ň
+   else
+      Send("{U+0148}") ;ň
+}
+sc07B & m:: ;
+{
+   if GetKeyState("Shift")
+      Send("{U+0143}") ;Ń
+   else
+      Send("{U+0144}") ;ń
+ }
+; V1toV2: Added Bracket before hotkey or Hotstring
+,::Send ("{U+002C}")
+sc07B & ,:: ; comma
+{
+   if GetKeyState("Shift")
+      Send("{U+0139}") ; Ĺ
+   else
+      Send("{U+013A}") ; ĺ
+}
+sc07B & .:: ; period
+{
+   if GetKeyState("Shift")
+      Send("{U+0154}") ; Ŕ
+   else
+      Send("{U+0155}") ; ŕ
+}
+sc07B & /:: ; slash
+{
+   if GetKeyState("Shift")
+      Send("{U+01B7}") ; Ʒ
+   else
+      Send("{U+0292}") ; ʒ
+}
+sc07B & sc073:: ; back slash
+{
+   if GetKeyState("Shift")
+      Send("{U+00CE}") ; Î
+   else
+      Send("{U+00EE}") ; î
+ }
+
+;miscellaneous characters
+isHotKeyRunning := Map("^", [false, 0], "-", [false, 0], "@", [false, 0], "[", [false, 0], ".", [false, 0], "]", [false, 0])
+result := false
+
+^^::WaitForAlphabet("^") ; inverted breve
+^.::WaitForAlphabet(".") ; dot below
+^-::WaitForAlphabet("-") ; macron
+^@::WaitForAlphabet("@") ; grave
+^[::WaitForAlphabet("[") ; double grave
+^]::WaitForAlphabet("]") ; misc.
+
+WaitForAlphabet(diacritic) {
+    global isHotKeyRunning, base, combiningMark, result
+    SetFlags(diacritic)
+    for key, value in isHotKeyRunning {
+        if (key != diacritic && value[1]) { ; Check if other HotKey is running
+            isHotKeyRunning[diacritic][2] := 1 ; a HotKey has been activated before this HotKey
+            isHotKeyRunning[key][1] := false ; set prior HotKey to false
+            result := true
+        }
+    }
+    CharArray := Map("a^", ["ȃ","Ȃ"], "a-", ["ā","Ā"], "a@", ["à","À"], "a[", ["ȁ","Ȁ"], "a.", ["ạ","Ạ"], "a]", ["æ","Æ"]
+                    ,"e^", ["ȇ","Ȇ"], "e-", ["ē","Ē"], "e@", ["è","È"], "e[", ["ȅ","Ȅ"], "e.", ["ẹ","Ẹ"], "e]", ["ə","Ə"]
+                    ,"i^", ["ȋ","Ȋ"], "i-", ["ī","Ī"], "i@", ["ì","Ì"], "i[", ["ȉ","Ȉ"], "i.", ["ị","Ị"], "i]", ["į","Į"]
+                    ,"o^", ["ȏ","Ȏ"], "o-", ["ō","Ō"], "o@", ["ò","Ò"], "o[", ["ȍ","Ȍ"], "o.", ["ọ","Ọ"], "o]", ["œ","Œ"]
+                    ,"u^", ["ȗ","Ȗ"], "u-", ["ū","Ū"], "u@", ["ù","Ù"], "u[", ["ȕ","Ȕ"], "u.", ["ụ","Ụ"], "u]", ["ų","Ų"]
+                    ,"r^", ["ȓ","Ȓ"], "r[", ["ȑ","Ȑ"], "r.", ["ṛ","Ṛ"]
+                    ,"^", "{U+0311}", "-", "{U+0304}", "@", "{U+0300}", "[", "{U+030F}", ".", "", "]", "")
+    ih := InputHook("L1")
+    ih.Start()
+    ih.Wait()
+    char := ih.Input
+    if (!isHotKeyRunning[diacritic][1]) { ; overwrite previous HotKey
+        if (result) {
+            Send "{a " isHotKeyRunning[diacritic][2] "}" ; input {a} to ih (ih.EndReason is "Max")
+            if (isHotKeyRunning[diacritic][2] = 0) { ; this is the first HotKey that is pressed (or the last HotKey in progress)
+                Send(base)
+                Sleep 0
+                Send(combiningMark)
+            }
+            isHotKeyRunning[diacritic] := [false, 0]
+            return
+        }
+        else ; send precomposed char
+            Send(char)
+    }
+    else {combinedKey := StrLower(char) diacritic
+        if CharArray.Has(combinedKey) { ; send precomposed character
+            if GetKeyState("LShift")
+                Send(CharArray[combinedKey][2]) ; uppercase
+            else
+                Send(CharArray[combinedKey][1]) ; lowercase
+        }
+        else { combiningMark := CharArray[diacritic], base := char ; send base char + combining mark
+            if (result) { ; if other HotKey is runningt
+                Send(char)
+                isHotKeyRunning[diacritic][1] := false
+                return
+            }
+            else {
+                Send(base)
+                Sleep 0
+                Send(combiningMark)
+            }
+        }
+    }
+    ResetFlags(diacritic)
+}
+
+SetFlags(flag) {
+    global isHotKeyRunning, result
+    isHotKeyRunning[flag] := [true, 0]
+    result := false
+    }
+
+ResetFlags(flag) {
+    global isHotKeyRunning, result
+    isHotKeyRunning[flag] := [false, 0]
+    result := false
+    }
