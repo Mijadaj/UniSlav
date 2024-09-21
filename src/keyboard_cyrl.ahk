@@ -1,4 +1,5 @@
 ;Slavic Cyrillic keyboard (Modern Slavic languages)
+#SingleInstance Force
 ;row 1
 sc07B & 1:: ;->
 {
