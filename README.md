@@ -1,6 +1,6 @@
 ## Slavic-keyboard
 
-- Bulit with [AutoHotKey](https://www.autohotkey.com/) (for Windows only).
+- Built with [AutoHotKey](https://www.autohotkey.com/) (for Windows only).
 - Allows typing most of the characters used in Slavic languages, including Cyrillic, Latin, and Glagolitic scripts.
 
 Since I use a Japanese (108-key) keyboard, this AHK script may not work out of the box with other layouts. Please adjust the hotkeys to fit your layout.
