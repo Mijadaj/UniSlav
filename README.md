@@ -8,7 +8,7 @@ Note that `sc07B` (the *muhenkan* 無変換 key) is primarily used as a modifier
 
 ## Usage
 
-1. Run `keyboardController.ahk`.  
+1. Run `src/keyboardController.ahk`.  
 1. Each keyboard is activated/terminated with the following HotKeys.
     - **`Ctrl + 1`** for Modern Slavic languages  
     **Slavic Cyrillic** `keyboard_cyrl.ahk`  
