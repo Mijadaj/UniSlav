@@ -1,19 +1,11 @@
-﻿KeyHistory(16)
-#SingleInstance Force
+﻿#SingleInstance Force
 DetectHiddenWindows(true)
 
 scriptA := "keyboard_cyrl.ahk"
 scriptB := "keyboard_latn.ahk"
 scriptC := "keyboard_cyrs.ahk"
 scriptD := "keyboard_glag.ahk"
-scriptX := "..\test.ahk"
 currentScript := false
-
-^3::
-{
-    if WinExist(scriptA)
-    WinClose(scriptA)
-}
 
 switchKeyboard(new,old) {
     global
@@ -90,25 +82,3 @@ switchKeyboard(new,old) {
         switchKeyboard("^2","^1")
     }
 }
-
-^q::
-{
-    global
-    if !currentScript  ; No script is running
-    {
-        Run(scriptX)
-        currentScript := true
-        ToolTip("test script")
-        SetTimer(ToolTip,-2000)
-    }
-    else if WinExist("test.ahk") {
-        WinClose("test.ahk")
-        currentScript := false
-        Reload
-    }
-}
-
-F6::Reload
-AppsKey::RAlt
-+f11::Run("https://chobitool.com/unicodepoint/")
-f12::KeyHistory
