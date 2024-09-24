@@ -8,6 +8,8 @@ Note that `sc07B` (the *muhenkan* 無変換 key) is primarily used as a modifier
 
 ## Usage
 
+[Release](https://github.com/Mijadaj/ahk-slavic-keyboard/releases/latest)
+
 1. Run `src/keyboardController.ahk`.  
 1. Each keyboard is activated/terminated with the following HotKeys.
     - **`Ctrl + 1`** for Modern Slavic languages  
@@ -18,3 +20,5 @@ Note that `sc07B` (the *muhenkan* 無変換 key) is primarily used as a modifier
     - **`Ctrl + 2`** for Church Slavonic  
     **Early Cyrillic** `keyboard_cyrs.ahk`  
     **Glagolitic** `keyboard_glag.ahk`
+
+日本語話者向けの解説：[【AHK】スラヴ語汎用キーボード](https://note.com/dajdarabotci/n/nb9b58f8dcf26)
