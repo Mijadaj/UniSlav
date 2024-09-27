@@ -1,31 +1,23 @@
 ﻿#SingleInstance Force
-A_IconTip := "Main Controller"
-TraySetIcon("icon\main.ico",,false)
 DetectHiddenWindows(true)
 
-scriptA := "keyboard_cyrl.ahk"
-scriptB := "keyboard_latn.ahk"
-scriptC := "keyboard_cyrs.ahk"
-scriptD := "keyboard_glag.ahk"
+scriptA := "keyboard_cyrl.exe"
+scriptB := "keyboard_latn.exe"
+scriptC := "keyboard_cyrs.exe"
+scriptD := "keyboard_glag.exe"
 currentScript := false
-HKModern := IniRead("config\config.ini", "Hotkey", "ModernSlavicKeyboard", "^1")
-HKChurch := IniRead("config\config.ini", "Hotkey", "ChurchSlavonicKeyboard", "^2")
 
-Hotkey(HKModern,ModernKB,"On")
-Hotkey(HKChurch,ChurchKB,"On")
-
-F6::Reload
 switchKeyboard(new,old) {
     global
     SetTimer(ToolTip,-1500)
-    if old = HKModern {
+    if old = "^1" {
         ToolTip("Loading Church Slavonic keyboard...")
         if WinExist(scriptA)
             WinClose(scriptA)
         if WinExist(scriptB)
             WinClose(scriptB)
     }
-    else if old = HKChurch {
+    else if old = "^2" {
         ToolTip("Loading Modern Slavic keyboard...")
         if WinExist(scriptC)
             WinClose(scriptC)
@@ -37,7 +29,8 @@ switchKeyboard(new,old) {
     Send new
 }
 
-ModernKB(*) {
+^1::
+{
     global
     if !currentScript {
         Run(scriptA)
@@ -45,7 +38,7 @@ ModernKB(*) {
         SetTimer(ToolTip,-1500)
         ToolTip("Slavic Cyrillic")
     }
-    else if WinExist(scriptA, , "Visual Studio Code") {
+    else if WinExist(scriptA) {
         WinClose(scriptA)
         Run(scriptB)
         currentScript := true
@@ -59,11 +52,12 @@ ModernKB(*) {
         ToolTip("Exiting keyboard mode...")
     }
     else {
-        switchKeyboard(HKModern,HKChurch)
+        switchKeyboard("^1","^2")
     }
 }
 
-ChurchKB(*) {
+^2::
+{
     global
     if !currentScript {
         Run(scriptC, , , &pidC)
@@ -85,6 +79,6 @@ ChurchKB(*) {
         ToolTip("Exiting keyboard mode...")
     }
     else {
-        switchKeyboard(HKChurch,HKModern)
+        switchKeyboard("^2","^1")
     }
 }

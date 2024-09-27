@@ -1,5 +1,7 @@
 ﻿; Glagolitic keyboard
 #SingleInstance Force
+A_IconTip := "Glagolitic"
+TraySetIcon("icon\glag.ico",,true)
 ;row 1 qwerty
 q::Send("{U+2C39}") ;ⰹ
 +q::Send("{U+2C09}") ;Ⰹ

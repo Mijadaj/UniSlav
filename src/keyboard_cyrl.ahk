@@ -1,5 +1,7 @@
 ;Slavic Cyrillic keyboard (Modern Slavic languages)
 #SingleInstance Force
+A_IconTip := "Slavic Cyrillic"
+TraySetIcon("icon\cyrl.ico",,true)
 ;row 1
 sc07B & 1:: ;->
 {
@@ -98,8 +100,8 @@ sc07B & q:: ;-> I
    else
       Send("{U+0456}") ;і
 }
-w::Send("{U+0446}") ;
-+w::Send("{U+0426}") ;
+w::Send("{U+0446}") ; Ц
++w::Send("{U+0426}") ; ц
 sc07B & w:: ;-> Yi
 {
    if GetKeyState("Shift")

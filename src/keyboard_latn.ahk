@@ -1,5 +1,7 @@
 ﻿;Slavic Latin keyboard
 #SingleInstance Force
+A_IconTip := "Slavic Latin"
+TraySetIcon("icon\latn.ico",,true)
 ;row 1
 sc07B & 1:: ;-> lengthened & nasalized
 {
@@ -32,7 +34,7 @@ sc07B & 4:: ;->
 sc07B & 5:: ;-> 
 {
    if GetKeyState("Shift")
-      Send("{U+}") ; aˊa´
+      Send("{U+}") ;
    else
       Send("{U+}") ; 
 }
@@ -86,7 +88,7 @@ sc07B & sc00D:: ; ^
    else
       Send("{U+044C}") ; ь
 }
-sc07B & sc07D:: ; \
+sc07B & sc07D:: ; \ (only for JIS keyboard)
 {
    if GetKeyState("Shift")
       Send("{U+042A}") ; Ъ
@@ -258,9 +260,9 @@ sc07B & sc027:: ; semicolon
 sc07B & sc028:: ; colon
 {
    if GetKeyState("Shift")
-      Send("{U+00CB}") ; Ä
+      Send("{U+00CB}") ; Ë
    else
-      Send("{U+00EB}") ; ä
+      Send("{U+00EB}") ; Ë
 }
 sc07B & sc02B:: ; ]}
 {
@@ -320,30 +322,30 @@ sc07B & m:: ;
    else
       Send("{U+0144}") ;ń
  }
-; V1toV2: Added Bracket before hotkey or Hotstring
-,::Send ("{U+002C}")
-sc07B & ,:: ; comma
+
+sc033::Send ("{U+002C}") ; comma
+sc07B & sc033:: ; comma
 {
    if GetKeyState("Shift")
       Send("{U+0139}") ; Ĺ
    else
       Send("{U+013A}") ; ĺ
 }
-sc07B & .:: ; period
+sc07B & sc034:: ; period
 {
    if GetKeyState("Shift")
       Send("{U+0154}") ; Ŕ
    else
       Send("{U+0155}") ; ŕ
 }
-sc07B & /:: ; slash
+sc07B & sc035:: ; slash
 {
    if GetKeyState("Shift")
       Send("{U+01B7}") ; Ʒ
    else
       Send("{U+0292}") ; ʒ
 }
-sc07B & sc073:: ; back slash
+sc07B & sc073:: ; back slash (only for JIS keyboard)
 {
    if GetKeyState("Shift")
       Send("{U+00CE}") ; Î
@@ -355,12 +357,13 @@ sc07B & sc073:: ; back slash
 isHotKeyRunning := Map("^", [false, 0], "-", [false, 0], "@", [false, 0], "[", [false, 0], ".", [false, 0], "]", [false, 0])
 result := false
 
-^^::WaitForAlphabet("^") ; inverted breve
-^.::WaitForAlphabet(".") ; dot below
-^-::WaitForAlphabet("-") ; macron
-^@::WaitForAlphabet("@") ; grave
-^[::WaitForAlphabet("[") ; double grave
-^]::WaitForAlphabet("]") ; misc.
+Ctrl & sc00C::WaitForAlphabet("-") ; macron
+Ctrl & sc00D::WaitForAlphabet("^") ; inverted breve
+Ctrl & sc01A::WaitForAlphabet("@") ; grave
+Ctrl & sc01B::WaitForAlphabet("[") ; double grave
+Ctrl & sc02B::WaitForAlphabet("]") ; misc.
+Ctrl & sc028::WaitForAlphabet(":") ; trema
+Ctrl & sc034::WaitForAlphabet(".") ; dot below
 
 WaitForAlphabet(diacritic) {
    global isHotKeyRunning, base, combiningMark, result
@@ -372,20 +375,20 @@ WaitForAlphabet(diacritic) {
            result := true
       }
    }
-   CharArray := Map("a^", ["ȃ","Ȃ"], "a-", ["ā","Ā"], "a@", ["à","À"], "a[", ["ȁ","Ȁ"], "a.", ["ạ","Ạ"], "a]", ["æ","Æ"]
-                   ,"e^", ["ȇ","Ȇ"], "e-", ["ē","Ē"], "e@", ["è","È"], "e[", ["ȅ","Ȅ"], "e.", ["ẹ","Ẹ"], "e]", ["ə","Ə"]
-                   ,"i^", ["ȋ","Ȋ"], "i-", ["ī","Ī"], "i@", ["ì","Ì"], "i[", ["ȉ","Ȉ"], "i.", ["ị","Ị"], "i]", ["į","Į"]
-                   ,"o^", ["ȏ","Ȏ"], "o-", ["ō","Ō"], "o@", ["ò","Ò"], "o[", ["ȍ","Ȍ"], "o.", ["ọ","Ọ"], "o]", ["œ","Œ"]
-                   ,"u^", ["ȗ","Ȗ"], "u-", ["ū","Ū"], "u@", ["ù","Ù"], "u[", ["ȕ","Ȕ"], "u.", ["ụ","Ụ"], "u]", ["ų","Ų"]
+   CharArray := Map("a^", ["ȃ","Ȃ"], "a-", ["ā","Ā"], "a@", ["à","À"], "a[", ["ȁ","Ȁ"], "a.", ["ạ","Ạ"], "a]", ["æ","Æ"], "a:", ["ä","Ä"]
+                   ,"e^", ["ȇ","Ȇ"], "e-", ["ē","Ē"], "e@", ["è","È"], "e[", ["ȅ","Ȅ"], "e.", ["ẹ","Ẹ"], "e]", ["ə","Ə"], "e:", ["ë","Ë"]
+                   ,"i^", ["ȋ","Ȋ"], "i-", ["ī","Ī"], "i@", ["ì","Ì"], "i[", ["ȉ","Ȉ"], "i.", ["ị","Ị"], "i]", ["į","Į"], "i:", ["ï","Ï"]
+                   ,"o^", ["ȏ","Ȏ"], "o-", ["ō","Ō"], "o@", ["ò","Ò"], "o[", ["ȍ","Ȍ"], "o.", ["ọ","Ọ"], "o]", ["œ","Œ"], "o:", ["ö","Ö"]
+                   ,"u^", ["ȗ","Ȗ"], "u-", ["ū","Ū"], "u@", ["ù","Ù"], "u[", ["ȕ","Ȕ"], "u.", ["ụ","Ụ"], "u]", ["ų","Ų"], "u:", ["ü","Ü"]
                    ,"r^", ["ȓ","Ȓ"], "r[", ["ȑ","Ȑ"], "r.", ["ṛ","Ṛ"]
-                   ,"^", "{U+0311}", "-", "{U+0304}", "@", "{U+0300}", "[", "{U+030F}", ".", "", "]", "")
+                   ,"^", "{U+0311}", "-", "{U+0304}", "@", "{U+0300}", "[", "{U+030F}", ".", "", "]", "", ":", "{U+0308}")
    ih := InputHook("L1")
    ih.Start()
    ih.Wait()
    char := ih.Input
    if (!isHotKeyRunning[diacritic][1]) { ; overwrite previous HotKey
       if (result) {
-         Send "{a " isHotKeyRunning[diacritic][2] "}" ; input {a} to ih (ih.EndReason is "Max")
+         SendEvent("{a " isHotKeyRunning[diacritic][2] "}") ; input {a} to ih (ih.EndReason is "Max")
          if (isHotKeyRunning[diacritic][2] = 0) { ; this is the first HotKey that is pressed (or the last HotKey in progress)
             Send(base)
             Sleep 0
@@ -395,20 +398,20 @@ WaitForAlphabet(diacritic) {
          return
       }
       else ; send precomposed char
-         Send(char)
+         SendEvent(char)
    }
    else {
       combinedKey := StrLower(char) diacritic
       if CharArray.Has(combinedKey) { ; send precomposed character
-         if GetKeyState("LShift")
-            Send(CharArray[combinedKey][2]) ; uppercase
+         if GetKeyState("Shift")
+            SendEvent(CharArray[combinedKey][2]) ; uppercase
          else
-            Send(CharArray[combinedKey][1]) ; lowercase
+            SendEvent(CharArray[combinedKey][1]) ; lowercase
       }
       else {
          combiningMark := CharArray[diacritic], base := char ; send base char + combining mark
-         if (result) { ; if other HotKey is runningt
-            Send(char)
+         if (result) { ; if other HotKey is running
+            SendEvent(char)
             isHotKeyRunning[diacritic][1] := false
             return
          }

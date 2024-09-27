@@ -1,79 +1,79 @@
-106/109 layout	scancode
-半角/全角	sc029
-1	sc002
-2	sc003
-3	sc004
-4	sc005
-5	sc006
-6	sc007
-7	sc008
-8	sc009
-9	sc00A
-0	sc00B
--	sc00C
-^	sc00D
-\	sc07D
+scancode	JIS	ANSI	ЙЦУКЕН
+sc029	半角/全角	`,~	Ё
+sc002	1	1,!	1
+sc003	2	2,@	2
+sc004	3	3,#	3
+sc005	4	4,$	4
+sc006	5	5,%	5
+sc007	6	6,^	6
+sc008	7	7,&	7
+sc009	8	8,*	8
+sc00A	9	9,(	9
+sc00B	0	0,)	0
+sc00C	-	-,_	-
+sc00D	^	=,+	=
+sc07D	\	(no key)	(no key)
 
-Q	sc010
-W	sc011
-E	sc012
-R	sc013
-T	sc014
-Y	sc015
-U	sc016
-I	sc017
-O	sc018
-P	sc019
-@	sc01A
-[	sc01B
+sc010	Q	Q	Й
+sc011	W	W	Ц
+sc012	E	E	У
+sc013	R	R	К
+sc014	T	T	Е
+sc015	Y	Y	Н
+sc016	U	U	Г
+sc017	I	I	Ш
+sc018	O	O	Щ
+sc019	P	P	З
+sc01A	@	[	Х
+sc01B	[	]	Ъ
 
-Capslock	sc03A
-A	sc01E
-S	sc01F
-D	sc020
-F	sc021
-G	sc022
-H	sc023
-J	sc024
-K	sc025
-L	sc026
-;	sc027
-:	sc028
-]	sc02B
+sc03A	Capslock	Capslock	Capslock
+sc01E	A	A	Ф
+sc01F	S	S	Ы
+sc020	D	D	В
+sc021	F	F	А
+sc022	G	G	П
+sc023	H	H	Р
+sc024	J	J	О
+sc025	K	K	Л
+sc026	L	L	Д
+sc027	;	;,:	Ж
+sc028	:	',"	Э
+sc02B	]	\,|	\
 
-LShift	sc02A
-Z	sc02C
-X	sc02D
-C	sc02E
-V	sc02F
-B	sc030
-N	sc031
-M	sc032
-,	sc033
-.	sc034
-/	sc035
-\	sc073
-RShift	sc036
+sc02A	LShift	LShift	LShift
+sc02C	Z	Z	Я
+sc02D	X	X	Ч
+sc02E	C	C	С
+sc02F	V	V	М
+sc030	B	B	И
+sc031	N	N	Т
+sc032	M	M	Ь
+sc033	,	,,<	Б
+sc034	.	.,>	Ю
+sc035	/	/,?	.
+sc073	\	(no key)	(no key)
+sc136	RShift	RShift	RShift
 
-LCtrl	sc01D
-LWin	sc15B
-LAlt	sc038
-無変換	sc07B
-Space	sc039
-変換	sc079
-ひらがな	sc070
-AppsKey	sc15D
-RCtrl	sc11D
+sc01D	LCtrl	LCtrl	LCtrl
+sc15B	LWin	LWin	LWin
+sc038	LAlt	LAlt	LAlt
+sc07B	無変換	(no key)	(no key)
+sc039	Space	Space	Space
+sc079	変換	(no key)	(no key)
+sc070	ひらがな	(no key)	(no key)
+sc15D	AppsKey	AppsKey	AppsKey
+sc11D	RCtrl	RCtrl	RCtrl
 
-F1	sc03B
-F2	sc03C
-F3	sc03D
-F4	sc03E
-F5	sc03F
-F6	sc040
-F7	sc041
-F8	sc042
-F9	sc043
-F10	sc044
-F11	sc057
-F12	sc058
+sc03B	F1
+sc03C	F2
+sc03D	F3
+sc03E	F4
+sc03F	F5
+sc040	F6
+sc041	F7
+sc042	F8
+sc043	F9
+sc044	F10
+sc057	F11
+sc058	F12

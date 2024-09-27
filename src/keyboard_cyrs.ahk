@@ -1,5 +1,7 @@
 ; Early Cyrillic keyboard (Church Slavonic)
 #SingleInstance Force
+A_IconTip := "Early Cyrillic"
+TraySetIcon("icon\cyrs.ico",,true)
 ;; small letters
 q::Send("{U+0456}") ;і
 +q::Send("{U+0406}") ;І
@@ -72,44 +74,6 @@ sc035::Send("{U+002C}") ;slash: comma
 sc073::Send("{U+0483}") ;backslash: titlo
 +sc073::Send("{U+0484}") ;soft sign ;backslash
 Space::Send("{U+0020}") ;space
-
-;; capital letters
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ; secondary keyboard
 sc07B & q:: ;-> iota
