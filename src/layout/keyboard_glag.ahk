@@ -1,7 +1,9 @@
 ﻿; Glagolitic keyboard
 #SingleInstance Force
-A_IconTip := "Glagolitic"
-TraySetIcon("icon\glag.ico",,true)
+A_IconTip := "UniSlav - Glagolitic"
+TraySetIcon("icon\glag.ico",,false)
+IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "glag")
+
 ;row 1 qwerty
 q::Send("{U+2C39}") ;ⰹ
 +q::Send("{U+2C09}") ;Ⰹ

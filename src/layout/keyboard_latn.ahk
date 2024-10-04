@@ -1,7 +1,9 @@
 ﻿;Slavic Latin keyboard
 #SingleInstance Force
-A_IconTip := "Slavic Latin"
-TraySetIcon("icon\latn.ico",,true)
+A_IconTip := "UniSlav - Slavic Latin"
+TraySetIcon("icon\latn.ico",,false)
+IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "latn")
+
 ;row 1
 sc07B & 1:: ;-> lengthened & nasalized
 {

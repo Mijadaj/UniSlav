@@ -1,7 +1,9 @@
 ;Slavic Cyrillic keyboard (Modern Slavic languages)
 #SingleInstance Force
-A_IconTip := "Slavic Cyrillic"
-TraySetIcon("icon\cyrl.ico",,true)
+A_IconTip := "UniSlav - Slavic Cyrillic"
+TraySetIcon("icon\cyrl.ico",,false)
+IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "cyrl")
+
 ;row 1
 sc07B & 1:: ;->
 {

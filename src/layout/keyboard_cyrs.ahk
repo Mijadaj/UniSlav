@@ -1,7 +1,9 @@
 ; Early Cyrillic keyboard (Church Slavonic)
 #SingleInstance Force
-A_IconTip := "Early Cyrillic"
-TraySetIcon("icon\cyrs.ico",,true)
+A_IconTip := "UniSlav - Early Cyrillic"
+TraySetIcon("icon\cyrs.ico",,false)
+IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "cyrs")
+
 ;; small letters
 q::Send("{U+0456}") ;і
 +q::Send("{U+0406}") ;І
