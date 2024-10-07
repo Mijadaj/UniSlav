@@ -1,18 +1,18 @@
 scancode	JIS	ANSI	ЙЦУКЕН
 sc029	半角/全角	`,~	Ё
-sc002	1	1,!	1
-sc003	2	2,@	2
-sc004	3	3,#	3
-sc005	4	4,$	4
-sc006	5	5,%	5
-sc007	6	6,^	6
-sc008	7	7,&	7
-sc009	8	8,*	8
-sc00A	9	9,(	9
-sc00B	0	0,)	0
-sc00C	-	-,_	-
-sc00D	^	=,+	=
-sc07D	\	(no key)	(no key)
+sc002	1,!	1,!	1,!
+sc003	2,"	2,@	2,"
+sc004	3,#	3,#	3,№
+sc005	4,$	4,$	4,;
+sc006	5,%	5,%	5,%
+sc007	6,&	6,^	6,:
+sc008	7,'	7,&	7,?
+sc009	8,(	8,*	8,*
+sc00A	9,)	9,(	9,(
+sc00B	0	0,)	0,)
+sc00C	-,=	-,_	-,_
+sc00D	^,~	=,+	=,+
+sc07D	\,|	(no key)	(no key)
 
 sc010	Q	Q	Й
 sc011	W	W	Ц
@@ -24,8 +24,8 @@ sc016	U	U	Г
 sc017	I	I	Ш
 sc018	O	O	Щ
 sc019	P	P	З
-sc01A	@	[	Х
-sc01B	[	]	Ъ
+sc01A	@,`	[,{	Х
+sc01B	[,{	],}	Ъ
 
 sc03A	Capslock	Capslock	Capslock
 sc01E	A	A	Ф
@@ -37,9 +37,9 @@ sc023	H	H	Р
 sc024	J	J	О
 sc025	K	K	Л
 sc026	L	L	Д
-sc027	;	;,:	Ж
-sc028	:	',"	Э
-sc02B	]	\,|	\
+sc027	;,+	;,:	Ж
+sc028	:,*	',"	Э
+sc02B	],}	\,|	\,/
 
 sc02A	LShift	LShift	LShift
 sc02C	Z	Z	Я
@@ -49,10 +49,10 @@ sc02F	V	V	М
 sc030	B	B	И
 sc031	N	N	Т
 sc032	M	M	Ь
-sc033	,	,,<	Б
-sc034	.	.,>	Ю
-sc035	/	/,?	.
-sc073	\	(no key)	(no key)
+sc033	,,<	,,<	Б
+sc034	.,>	.,>	Ю
+sc035	/,?	/,?	.,,
+sc073	\,_	(no key)	(no key)
 sc136	RShift	RShift	RShift
 
 sc01D	LCtrl	LCtrl	LCtrl

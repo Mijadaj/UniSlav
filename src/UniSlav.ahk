@@ -1,7 +1,25 @@
-﻿#SingleInstance Force
+﻿/*
+Copyright (C) 2024 Міја
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see
+<https://www.gnu.org/licenses/>.
+*/
+
+#SingleInstance Force
 DetectHiddenWindows(true)
 A_IconTip := "UniSlav"
-TraySetIcon("icon\main.ico",,false)
+TraySetIcon("icon\main.ico",, false)
 IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "ctrl")
 SetTimer(ToolTip,-2000)
 ToolTip("UniSlav launched.")
@@ -10,7 +28,6 @@ ahkPath := A_ScriptDir "\AutoHotkey64.exe"
 HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ModernSlavicKeyboard", "^1")
 HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ChurchSlavonicKeyboard", "^2")
 
-
 Hotkey(HKModern,ModernKB,"On")
 Hotkey(HKChurch,ChurchKB,"On")
 ModernKB(*) {
@@ -18,13 +35,14 @@ ModernKB(*) {
     checkWin()
     if !currentScript {
         A_IconHidden := 1
-        Run(ahkPath " layout\keyboard_cyrl.ahk")
+        Run(ahkPath " remap\keyboard_cyrl.ahk")
         SetTimer(ToolTip,-1500)
         ToolTip("Slavic Cyrillic")
     }
     else if WinCyrl {
+        A_IconHidden := 1
         WinClose("ahk_id " HWND_cyrl)
-        Run(ahkPath " layout\keyboard_latn.ahk")
+        Run(ahkPath " remap\keyboard_latn.ahk")
         SetTimer(ToolTip,-1500)
         ToolTip("Slavic Latin")
     }
@@ -43,13 +61,14 @@ ChurchKB(*) {
     checkWin()
     if !currentScript {
         A_IconHidden := 1
-        Run(ahkPath " layout\keyboard_cyrs.ahk")
+        Run(ahkPath " remap\keyboard_cyrs.ahk")
         SetTimer(ToolTip,-1500)
         ToolTip("Early Cyrillic")
     }
     else if WinCyrs {
+        A_IconHidden := 1
         WinClose("ahk_id" HWND_cyrs)
-        Run(ahkPath " layout\keyboard_glag.ahk")
+        Run(ahkPath " remap\keyboard_glag.ahk")
         SetTimer(ToolTip,-1500)
         ToolTip("Glagolitic")
     }
