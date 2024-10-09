@@ -36,7 +36,7 @@ lang_en := {Lang: "English"
            ,Text3: "Church Slavonic keyboard (Early Cyrillic, Glagolitic)"
            ,Text4: "This shortcut key cannot be set."
            ,Text5: "Modifier Key (for characters with diacritical marks such as Ў and Ą)"
-           ,Modifier: ["Muhenkan (sc07B)","Henkan (sc079)","Alt","≣ Menu key"]
+           ,Modifier: ["Muhenkan (sc07B)","Henkan (sc079)","Alt","AltGr","≣ Menu key"]
            ,StartUp: "Automatically launch UniSlav on PC startup."
            ,Save: "Save"
            ,Tab2: "Information"
@@ -48,7 +48,7 @@ lang_ja := {Lang: "日本語"
            ,Text3: "教会スラヴ語キーボード (Early Cyrillic, Glagolitic)"
            ,Text4: "このショートカットキーは設定できません。"
            ,Text5: "修飾キー（Ў, Ą などのダイアクリティカル・マーク付き文字用）"
-           ,Modifier: ["無変換","変換","Alt","≣ メニューキー"]
+           ,Modifier: ["無変換","変換","Alt","AltGr","≣ メニューキー"]
            ,StartUp: "PC起動時に UniSlav を自動的に立ち上げる。"
            ,Save: "保存"
            ,Tab2: "情報"

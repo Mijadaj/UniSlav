@@ -24,70 +24,70 @@ IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "latn")
 #Include "modifier.ahk"
 
 ;row 1
-sc07B & 1:: ;-> lengthened & nasalized
+vk0E & 1:: ;-> lengthened & nasalized
 {
    if GetKeyState("Shift")
       Send("")
    else
       Send("ː") ; lengthened
 }
-sc07B & 2:: ;-> кавычки-left
+vk0E & 2:: ;-> кавычки-left
 {
    if GetKeyState("Shift")
       Send("«")
    else
       Send("“")
 }
-sc07B & 3:: ;-> кавычки-right
+vk0E & 3:: ;-> кавычки-right
 {
    if GetKeyState("Shift")
       Send("»")
    else
       Send("”")
 }
-sc07B & 4:: ;-> 
+vk0E & 4:: ;-> 
 {
    if GetKeyState("Shift")
       Send("") ; 
    else
       Send("") ; 
 }
-sc07B & 5:: ;-> 
+vk0E & 5:: ;-> 
 {
    if GetKeyState("Shift")
       Send("") ;
    else
       Send("") ; 
 }
-sc07B & 6:: ;-> 
+vk0E & 6:: ;-> 
 {
    if GetKeyState("Shift")
       Send("") ; 
    else
       Send("") ; 
 }
-sc07B & 7:: ;-> palatalized & velarized
+vk0E & 7:: ;-> palatalized & velarized
 {
    if GetKeyState("Shift")
       Send("ˠ")
    else
       Send("ʲ")
 }
-sc07B & 8:: ;-> prime & apostrophe
+vk0E & 8:: ;-> prime & apostrophe
 {
    if GetKeyState("Shift")
       Send("ʹ") ; prime (modifier)
    else
       Send("’") ; right single quotation
 }
-sc07B & 9:: ;-> 
+vk0E & 9:: ;-> 
 {
    if GetKeyState("Shift")
       Send("") ; 
    else
       Send("") ; 
 }
-sc07B & 0:: ;-> dotted circle & affricate
+vk0E & 0:: ;-> dotted circle & affricate
 {
    if GetKeyState("Shift")
       Send("{U+0361}") ; affricate
@@ -95,21 +95,21 @@ sc07B & 0:: ;-> dotted circle & affricate
       Send("◌") ; dotted circle
  }
 -::Send("{U+2011}") ; non-breaking hyphen
-sc07B & sc00C:: ;-> em dash
+vk0E & sc00C:: ;-> em dash
 {
    if GetKeyState("Shift")
       Send("{U+2013}") ; en dash
    else
       Send("{U+2014}") ; em dash
 }
-sc07B & sc00D:: ; ^
+vk0E & sc00D:: ; ^
 {
    if GetKeyState("Shift")
       Send("Ь")
    else
       Send("ь")
 }
-sc07B & sc07D:: ; \ (only for JIS keyboard)
+vk0E & sc07D:: ; \ (only for JIS keyboard)
 {
    if GetKeyState("Shift")
       Send("Ъ")
@@ -120,70 +120,70 @@ sc07B & sc07D:: ; \ (only for JIS keyboard)
 ;row 2
 q::Send("ę")
 +q::Send("Ę")
-sc07B & q::
+vk0E & q::
 {
    if GetKeyState("Shift")
       Send("Ą")
    else
       Send("ą")
 }
-sc07B & w::
+vk0E & w::
 {
    if GetKeyState("Shift")
       Send("É")
    else
       Send("é")
 }
-sc07B & e::
+vk0E & e::
 {
    if GetKeyState("Shift")
       Send("Ě")
    else
       Send("ě")
 }
-sc07B & r::
+vk0E & r::
 {
    if GetKeyState("Shift")
       Send("Ř")
    else
       Send("ř")
 }
-sc07B & t::
+vk0E & t::
 {
    if GetKeyState("Shift")
       Send("Ť")
    else
       Send("ť")
 }
-sc07B & y::
+vk0E & y::
 {
    if GetKeyState("Shift")
       Send("Ý")
    else
       Send("ý")
 }
-sc07B & u::
+vk0E & u::
 {
    if GetKeyState("Shift")
       Send("Ú")
    else
       Send("ú")
 }
-sc07B & i::
+vk0E & i::
 {
    if GetKeyState("Shift")
       Send("Í")
    else
       Send("í")
 }
-sc07B & o::
+vk0E & o::
 {
    if GetKeyState("Shift")
       Send("Ó")
    else
       Send("ó")
 }
-sc07B & p::
+vk0E & p::
 {
    if GetKeyState("Shift")
       Send("Ǫ")
@@ -191,14 +191,14 @@ sc07B & p::
       Send("ǫ")
 }
 sc01A::Send("{U+0301}") ; acute accent
-sc07B & sc01A:: ;@
+vk0E & sc01A:: ;@
 {
    if GetKeyState("Shift")
       Send("Ô")
    else
       Send("ô")
 }
-sc07B & sc01B:: ;[
+vk0E & sc01B:: ;[
 {
    if GetKeyState("Shift")
       Send("Ŷ")
@@ -207,84 +207,84 @@ sc07B & sc01B:: ;[
  }
 
 ;row 3
-sc07B & a::
+vk0E & a::
 {
-   if GetKeyState("Ctrl")
+   if GetKeyState("Shift")
       Send("Á")
    else
       Send("á")
 }
-sc07B & s::
+vk0E & s::
 {
    if GetKeyState("Shift")
       Send("Š")
    else
       Send("š")
 }
-sc07B & d::
+vk0E & d::
 {
    if GetKeyState("Shift")
       Send("Ď")
    else
       Send("ď")
 }
-sc07B & f::
+vk0E & f::
 {
    if GetKeyState("Shift")
       Send("Đ")
    else
       Send("đ")
 }
-sc07B & g::
+vk0E & g::
 {
    if GetKeyState("Shift")
       Send("Ǵ")
    else
       Send("ǵ")
 }
-sc07B & h::
+vk0E & h::
 {
    if GetKeyState("Shift")
       Send("Ś")
    else
       Send("ś")
 }
-sc07B & j::
+vk0E & j::
 {
    if GetKeyState("Shift")
       Send("Ů")
    else
       Send("ů")
 }
-sc07B & k::
+vk0E & k::
 {
    if GetKeyState("Shift")
       Send("Ḱ")
    else
       Send("ḱ")
 }
-sc07B & l::
+vk0E & l::
 {
    if GetKeyState("Shift")
       Send("Ł")
    else
       Send("ł")
 }
-sc07B & sc027:: ; semicolon
+vk0E & sc027:: ; semicolon
 {
    if GetKeyState("Shift")
       Send("Ä")
    else
       Send("ä")
 }
-sc07B & sc028:: ; colon
+vk0E & sc028:: ; colon
 {
    if GetKeyState("Shift")
       Send("Ë")
    else
       Send("ë")
 }
-sc07B & sc02B:: ; ]}
+vk0E & sc02B:: ; ]}
 {
    if GetKeyState("Shift")
       Send("Ï")
@@ -293,49 +293,49 @@ sc07B & sc02B:: ; ]}
  }
 
 ;row 4
-sc07B & z::
+vk0E & z::
 {
    if GetKeyState("Shift")
       Send("Ž")
    else
       Send("ž")
 }
-sc07B & x::
+vk0E & x::
 {
    if GetKeyState("Shift")
       Send("Ż")
    else
       Send("ż")
 }
-sc07B & c::
+vk0E & c::
 {
    if GetKeyState("Shift")
       Send("Č")
    else
       Send("č")
 }
-sc07B & v::
+vk0E & v::
 {
    if GetKeyState("Shift")
       Send("Ć")
    else
       Send("ć")
 }
-sc07B & b::
+vk0E & b::
 {
    if GetKeyState("Shift")
       Send("Ź")
    else
       Send("ź")
 }
-sc07B & n::
+vk0E & n::
 {
    if GetKeyState("Shift")
       Send("Ň")
    else
       Send("ň")
 }
-sc07B & m::
+vk0E & m::
 {
    if GetKeyState("Shift")
       Send("Ń")
@@ -344,28 +344,28 @@ sc07B & m::
  }
 
 sc033::Send (",")
-sc07B & sc033:: ; comma
+vk0E & sc033:: ; comma
 {
    if GetKeyState("Shift")
       Send("Ĺ")
    else
       Send("ĺ")
 }
-sc07B & sc034:: ; period
+vk0E & sc034:: ; period
 {
    if GetKeyState("Shift")
       Send("Ŕ")
    else
       Send("ŕ")
 }
-sc07B & sc035:: ; slash
+vk0E & sc035:: ; slash
 {
    if GetKeyState("Shift")
       Send("Ʒ")
    else
       Send("ʒ")
 }
-sc07B & sc073:: ; back slash (only for JIS keyboard)
+vk0E & sc073:: ; back slash (only for JIS keyboard)
 {
    if GetKeyState("Shift")
       Send("Î")

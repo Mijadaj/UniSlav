@@ -10,7 +10,7 @@
 **Note:**
 The developer usually uses a 106/109 Japanese keyboard and has developed this AHK script accordingly, so it may not be directly applicable to keyboards for other languages.
 In that case, please adjust the hotkeys as needed.
-In particular, note that `sc07B` (the *muhenkan* 無変換 key) is used as a modifier key.
+In particular, note that `sc07B` (the *muhenkan* 無変換 key) is used as a default modifier key.
 
 ## Usage
 
@@ -18,7 +18,7 @@ In particular, note that `sc07B` (the *muhenkan* 無変換 key) is used as a mod
 1. Each keyboard is activated or terminated by the following default hotkeys.
     - **`Ctrl + 1`** for Modern Slavic languages  
     **Slavic Cyrillic**  
-    Russian, Ukrainian, Rusyn, Belarusian, Bulgarian, Serbian *etc.*  
+    Russian, Ukrainian, Rusyn, Belarusian, Bulgarian, Macedonian, Serbian *etc.*  
     **Slavic Latin**  
     Polish, Czech, Slovak, Croatian, Slovene *etc.*
     - **`Ctrl + 2`** for Church Slavonic  
@@ -40,6 +40,6 @@ This software includes:
 - **AutoHotkey64.exe**, which is also licensed under the GPLv2.
 You can find the source code for AutoHotkey at: [https://github.com/AutoHotkey/AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
 - **config.exe**, which is compiled from AHK file using [AHK2EXE](https://github.com/AutoHotkey/Ahk2Exe).
-The source code can be found in [config.ahk](src\config\config.ahk).
+The source code can be found in [config.ahk](src/config/config.ahk).
 
 </details>
