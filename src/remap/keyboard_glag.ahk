@@ -21,327 +21,328 @@ along with this program; if not, see
 A_IconTip := "UniSlav - Glagolitic"
 TraySetIcon("..\icon\glag.ico",,false)
 IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "glag")
+#Include "modifier.ahk"
 
 ;row 1 qwerty
-q::Send("{U+2C39}") ;ⰹ
-+q::Send("{U+2C09}") ;Ⰹ
-w::Send("{U+2C4C}") ;ⱌ
-+w::Send("{U+2C1C}") ;Ⱌ
-e::Send("{U+2C46}") ;ⱆ
-+e::Send("{U+2C16}") ;Ⱆ
-r::Send("{U+2C3D}") ;ⰽ
-+r::Send("{U+2C0D}") ;Ⰽ
-t::Send("{U+2C35}") ;ⰵ
-+t::Send("{U+2C05}") ;Ⰵ
-y::Send("{U+2C40}") ;ⱀ
-+y::Send("{U+2C10}") ;Ⱀ
-u::Send("{U+2C33}") ;ⰳ
-+u::Send("{U+2C03}") ;Ⰳ
-i::Send("{U+2C4E}") ;ⱎ
-+i::Send("{U+2C1E}") ;Ⱎ
-o::Send("{U+2C4B}") ;ⱋ
-+o::Send("{U+2C1B}") ;Ⱋ
-p::Send("{U+2C38}") ;ⰸ
-+p::Send("{U+2C08}") ;Ⰸ
-sc01A::Send("{U+2C48}") ;ⱈ ;@ mark
-+sc01A::Send("{U+2C18}") ;Ⱈ ;@ mark
-sc01B::Send("{U+2C4F}") ;ⱏ ;[
-+sc01B::Send("{U+2C1F}") ;Ⱏ ;[
+q::Send("ⰹ")
++q::Send("Ⰹ")
+w::Send("ⱌ")
++w::Send("Ⱌ")
+e::Send("ⱆ")
++e::Send("Ⱆ")
+r::Send("ⰽ")
++r::Send("Ⰽ")
+t::Send("ⰵ")
++t::Send("Ⰵ")
+y::Send("ⱀ")
++y::Send("Ⱀ")
+u::Send("ⰳ")
++u::Send("Ⰳ")
+i::Send("ⱎ")
++i::Send("Ⱎ")
+o::Send("ⱋ")
++o::Send("Ⱋ")
+p::Send("ⰸ")
++p::Send("Ⰸ")
+sc01A::Send("ⱈ") ;@ mark
++sc01A::Send("Ⱈ") ;@ mark
+sc01B::Send("ⱏ") ;[
++sc01B::Send("Ⱏ") ;[
 
 ;row 2 asdfg...
-a::Send("{U+2C47}") ;ⱇ
-+a::Send("{U+2C17}") ;Ⱇ
-s::Send("{U+2C4F}{U+2C39}") ;ⱏⰹ
-+s::Send("{U+2C1F}{U+2C09}") ;ⰟⰉ
-d::Send("{U+2C32}") ;ⰲ
-+d::Send("{U+2C02}") ;Ⰲ
-f::Send("{U+2C30}") ;ⰰ
-+f::Send("{U+2C00}") ;Ⰰ
-g::Send("{U+2C42}") ;ⱂ
-+g::Send("{U+2C12}") ;Ⱂ
-h::Send("{U+2C43}") ;ⱃ
-+h::Send("{U+2C13}") ;Ⱃ
-j::Send("{U+2C41}") ;ⱁ
-+j::Send("{U+2C11}") ;Ⱁ
-k::Send("{U+2C3E}") ;ⰾ
-+k::Send("{U+2C0E}") ;Ⰾ
-l::Send("{U+2C34}") ;ⰴ
-+l::Send("{U+2C04}") ;Ⰴ
-sc027::Send("{U+2C36}") ;ⰶ ;semicolon
-+sc027::Send("{U+2C06}") ;Ⰶ ;semicolon
-sc028::Send("{}") ; ;colon
-+sc028::Send("{}") ; ;colon
-sc02B::Send("{U+2C51}") ;ⱑ ;]
-+sc02B::Send("{U+2C21}") ;Ⱑ ;]
+a::Send("ⱇ")
++a::Send("Ⱇ")
+s::Send("ⱏⰹ")
++s::Send("ⰟⰉ")
+d::Send("ⰲ")
++d::Send("Ⰲ")
+f::Send("ⰰ")
++f::Send("Ⰰ")
+g::Send("ⱂ")
++g::Send("Ⱂ")
+h::Send("ⱃ")
++h::Send("Ⱃ")
+j::Send("ⱁ")
++j::Send("Ⱁ")
+k::Send("ⰾ")
++k::Send("Ⰾ")
+l::Send("ⰴ")
++l::Send("Ⰴ")
+sc027::Send("ⰶ") ;semicolon
++sc027::Send("Ⰶ") ;semicolon
+sc028::Send("") ;colon
++sc028::Send("") ;colon
+sc02B::Send("ⱑ") ;]
++sc02B::Send("Ⱑ") ;]
 
 ;row 3 zxcv...
-z::Send("{}") ;
-+z::Send("{}") ;
-x::Send("{U+2C4D}") ;ⱍ
-+x::Send("{U+2C1D}") ;Ⱍ
-c::Send("{U+2C44}") ;ⱄ
-+c::Send("{U+2C14}") ;Ⱄ
-v::Send("{U+2C3F}") ;ⰿ
-+v::Send("{U+2C0F}") ;Ⰿ
-b::Send("{U+2C3B}") ;ⰻ
-+b::Send("{U+2C0B}") ;Ⰻ
-n::Send("{U+2C45}") ;ⱅ
-+n::Send("{U+2C15}") ;Ⱅ
-m::Send("{U+2C50}") ;ⱐ
-+m::Send("{U+2C20}") ;Ⱐ
-sc033::Send("{U+2C31}") ;ⰱ ;comma
-+sc033::Send("{U+2C01}") ;Ⰱ ;comma
-sc034::Send("{U+2C53}") ;ⱓ ;period
-+sc034::Send("{U+2C23}") ;Ⱓ ;period
-sc035::Send("{U+002C}") ;comma ;slash
-+sc035::Send("{}") ;comma ;slash
-sc073::Send("{U+002E}") ;period ;backslash
-+sc073::Send("{}") ; ;backslash
+z::Send("")
++z::Send("")
+x::Send("ⱍ")
++x::Send("Ⱍ")
+c::Send("ⱄ")
++c::Send("Ⱄ")
+v::Send("ⰿ")
++v::Send("Ⰿ")
+b::Send("ⰻ")
++b::Send("Ⰻ")
+n::Send("ⱅ")
++n::Send("Ⱅ")
+m::Send("ⱐ")
++m::Send("Ⱐ")
+sc033::Send("ⰱ") ;comma
++sc033::Send("Ⰱ") ;comma
+sc034::Send("ⱓ") ;period
++sc034::Send("Ⱓ") ;period
+sc035::Send(",") ;slash
++sc035::Send(".") ;slash
+sc073::Send("") ;backslash
++sc073::Send("") ;backslash
 Space::Send("{U+0020}") ;space
 
 ; secondary keyboard
 sc07B & q:: ;-> iota
 {
    if GetKeyState("Shift")
-      Send("{U+2C0A}") ;Ⰺ
+      Send("Ⰺ")
    else
-      Send("{U+2C3A}") ;ⰺ
+      Send("ⰺ")
 }
-sc07B & w:: ;-> {}
+sc07B & w::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & e:: ;-> {}
+sc07B & e::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & r:: ;-> {}
+sc07B & r::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & t:: ;-> little yus
 {
    if GetKeyState("Shift")
-      Send("{U+2C24}") ;Ⱔ
+      Send("Ⱔ")
    else
-      Send("{U+2C54}") ;ⱔ
+      Send("ⱔ")
 }
-sc07B & y:: ;-> {}
+sc07B & y::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & u:: ;-> djerv
 {
    if GetKeyState("Shift")
-      Send("{U+2C0C}") ;Ⰼ
+      Send("Ⰼ")
    else
-      Send("{U+2C3C}") ;ⰼ
+      Send("ⰼ")
 }
-sc07B & i:: ;-> {}
+sc07B & i::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & o:: ;-> {}
+sc07B & o::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & p:: ;-> dze
 {
    if GetKeyState("Shift")
-      Send("{U+2C07}") ;Ⰷ
+      Send("Ⰷ")
    else
-      Send("{U+2C37}") ;ⰷ
+      Send("ⰷ")
 }
-sc07B & sc01A:: ;-> {}
+sc07B & sc01A::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & sc01B:: ;-> {}
+sc07B & sc01B::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & a:: ;-> {}
+sc07B & a::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & s:: ;-> {}
+sc07B & s::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & d:: ;-> {}
+sc07B & d::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & f::  ;-> {}
+sc07B & f:: 
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & g:: ;-> {}
+sc07B & g::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & h:: ;-> {}
+sc07B & h::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & j:: ;-> big yus
 {
    if GetKeyState("Shift")
-      Send("{U+2C28}") ;Ⱘ
+      Send("Ⱘ")
    else
-      Send("{U+2C58}") ;ⱘ
+      Send("ⱘ")
 }
 sc07B & k:: ;-> omega
 {
    if GetKeyState("Shift")
-      Send("{U+2C19}") ;Ⱉ
+      Send("Ⱉ")
    else
-      Send("{U+2C49}") ;ⱉ
+      Send("ⱉ")
 }
-sc07B & l:: ;-> {}
+sc07B & l::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & sc027:: ;-> {}
+sc07B & sc027::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & sc028:: ;-> iotified little yus
 {
    if GetKeyState("Shift")
-      Send("{U+2C27}") ;Ⱗ
+      Send("Ⱗ")
    else
-      Send("{U+2C57}") ;ⱗ
+      Send("ⱗ")
 }
-sc07B & sc02B:: ;-> {}
+sc07B & sc02B::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & z:: ;-> {}
+sc07B & z::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & x:: ;-> {}
+sc07B & x::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & c:: ;-> {}
+sc07B & c::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & v:: ;-> {}
+sc07B & v::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & b:: ;-> izhitsa
 {
    if GetKeyState("Shift")
-      Send("{U+2C2B}") ;Ⱛ
+      Send("Ⱛ")
    else
-      Send("{U+2C5B}") ;ⱛ
+      Send("ⱛ")
 }
 sc07B & n:: ;-> fita
 {
    if GetKeyState("Shift")
-      Send("{U+2C2A}") ;Ⱚ
+      Send("Ⱚ")
    else
-      Send("{U+2C5A}") ;ⱚ
+      Send("ⱚ")
 }
-sc07B & m:: ;-> {}
+sc07B & m::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & sc033:: ;-> {}
+sc07B & sc033::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
 sc07B & sc034:: ;-> iotified big yus
 {
    if GetKeyState("Shift")
-      Send("{U+2C29}") ;Ⱙ
+      Send("Ⱙ")
    else
-      Send("{U+2C59}") ;ⱙ
+      Send("ⱙ")
 }
-sc07B & sc035:: ;-> {}
+sc07B & sc035::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }
-sc07B & sc073:: ;-> {}
+sc07B & sc073::
 {
    if GetKeyState("Shift")
-      Send("{}") ;
+      Send("")
    else
-      Send("{}") ;
+      Send("")
 }

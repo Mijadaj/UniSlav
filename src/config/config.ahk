@@ -15,6 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, see
 <https://www.gnu.org/licenses/>.
 */
+
 ;@Ahk2Exe-SetMainIcon %A_ScriptDir%\..\icon\main.ico
 ;@Ahk2Exe-SetCopyright Copyright © 2024 Міја
 ;@Ahk2Exe-SetDescription UniSlav Manager
@@ -25,6 +26,8 @@ along with this program; if not, see
 DetectHiddenWindows(True)
 A_ScriptName := "UniSlav Manager"
 IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "admin")
+F6::Reload
+F7::RegDeleteKey "HKEY_CURRENT_USER\Software\UniSlav\Hotkey"
 
 lang_en := {Lang: "English"
            ,Tab1: "Settings"
@@ -32,7 +35,8 @@ lang_en := {Lang: "English"
            ,Text2: "Modern Slavic keyboard (Slavic Cyrillic, Slavic Latin)"
            ,Text3: "Church Slavonic keyboard (Early Cyrillic, Glagolitic)"
            ,Text4: "This shortcut key cannot be set."
-           ,Modifier: "Use Alt as a modifier key instead of [Muhenkan] (sc07B)"
+           ,Text5: "Modifier Key (for characters with diacritical marks such as Ў and Ą)"
+           ,Modifier: ["Muhenkan (sc07B)","Henkan (sc079)","Alt","≣ Menu key"]
            ,StartUp: "Automatically launch UniSlav on PC startup."
            ,Save: "Save"
            ,Tab2: "Information"
@@ -43,7 +47,8 @@ lang_ja := {Lang: "日本語"
            ,Text2: "現代スラヴ語キーボード (Slavic Cyrillic, Slavic Latin)"
            ,Text3: "教会スラヴ語キーボード (Early Cyrillic, Glagolitic)"
            ,Text4: "このショートカットキーは設定できません。"
-           ,Modifier: "[無変換]の代わりにAltを修飾キーとして使用する"
+           ,Text5: "修飾キー（Ў, Ą などのダイアクリティカル・マーク付き文字用）"
+           ,Modifier: ["無変換","変換","Alt","≣ メニューキー"]
            ,StartUp: "PC起動時に UniSlav を自動的に立ち上げる。"
            ,Save: "保存"
            ,Tab2: "情報"
@@ -52,8 +57,8 @@ lang_ja := {Lang: "日本語"
 currentLang := lang_ja
 HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ModernSlavicKeyboard", "^1")
 HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ChurchSlavonicKeyboard", "^2")
-Modifier := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Modifier", "0")
-StartUp := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "StartUp", "0")
+Modifier := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Modifier", 1)
+StartUp := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "StartUp", 0)
 
 createGui()
 createGui() {
@@ -65,14 +70,16 @@ createGui() {
     setLang.Choose(currentLang.Lang)
     admin.Add("Tab3","vTab", [currentLang.Tab1, currentLang.Tab2])
     ;Tab1 settings
-    admin.Add("Text","vText1", currentLang.Text1) ; about settings
+    admin.Add("Text",, currentLang.Text1) ; about settings
     admin.SetFont("bold",)
-    admin.Add("Text","vText2", currentLang.Text2) ; modern slavic keyboard
+    admin.Add("Text",, currentLang.Text2) ; modern slavic keyboard
     admin.Add("Hotkey", "vHKModern Limit3", HKModern)
-    admin.Add("Text","vText3", currentLang.Text3) ; church slavonic keyboard
+    admin.Add("Text",, currentLang.Text3) ; church slavonic keyboard
     admin.Add("Hotkey", "vHKChurch Limit3", HKChurch)
+    admin.Add("Text", "w250 h0 0x10",)
+    admin.Add("Text",, currentLang.Text5) ; set modifier key
+    admin.Add("DropDownList", "vModifier Choose" Modifier, currentLang.Modifier)
     admin.SetFont("norm",)
-    admin.Add("Checkbox", "vModifier y+10 Checked" Modifier, currentLang.Modifier) ; startup setting
     admin.Add("Checkbox", "vStartUp y+10 Checked" StartUp, currentLang.StartUp) ; startup setting
     admin.Add("Button", "vSave Center", currentLang.Save)
     ;Tab2 info
