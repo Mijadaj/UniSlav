@@ -25,8 +25,8 @@ SetTimer(ToolTip,-2000)
 ToolTip("UniSlav launched.")
 
 ahkPath := A_ScriptDir "\AutoHotkey64.exe"
-HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ModernSlavicKeyboard", "^1")
-HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ChurchSlavonicKeyboard", "^2")
+HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKModern", "^1")
+HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKChurch", "^2")
 
 Hotkey(HKModern,ModernKB,"On")
 Hotkey(HKChurch,ChurchKB,"On")

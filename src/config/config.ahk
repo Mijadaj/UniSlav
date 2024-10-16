@@ -26,11 +26,9 @@ along with this program; if not, see
 DetectHiddenWindows(True)
 A_ScriptName := "UniSlav Manager"
 IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "admin")
-F6::Reload
-F7::RegDeleteKey "HKEY_CURRENT_USER\Software\UniSlav\Hotkey"
 
 lang_en := {Lang: "English"
-           ,Tab1: "Settings"
+           ,Tab: ["Settings","Information"]
            ,Text1: "Set the shortcut keys to launch each keyboard.`nPlease press a combination of Ctrl or Alt with a single key."
            ,Text2: "Modern Slavic keyboard (Slavic Cyrillic, Slavic Latin)"
            ,Text3: "Church Slavonic keyboard (Early Cyrillic, Glagolitic)"
@@ -39,10 +37,9 @@ lang_en := {Lang: "English"
            ,Modifier: ["Muhenkan (sc07B)","Henkan (sc079)","Alt","AltGr","≣ Menu key"]
            ,StartUp: "Automatically launch UniSlav on PC startup."
            ,Save: "Save"
-           ,Tab2: "Information"
            ,Toggle: "Launch / Exit UniSlav"}
 lang_ja := {Lang: "日本語"
-           ,Tab1: "設定"
+           ,Tab: ["設定","情報"]
            ,Text1: "各キーボードを起動するためのショートカットキーを設定します。`nCtrl または Alt と1つのキーの組み合わせを押してください。"
            ,Text2: "現代スラヴ語キーボード (Slavic Cyrillic, Slavic Latin)"
            ,Text3: "教会スラヴ語キーボード (Early Cyrillic, Glagolitic)"
@@ -51,12 +48,11 @@ lang_ja := {Lang: "日本語"
            ,Modifier: ["無変換","変換","Alt","AltGr","≣ メニューキー"]
            ,StartUp: "PC起動時に UniSlav を自動的に立ち上げる。"
            ,Save: "保存"
-           ,Tab2: "情報"
            ,Toggle: "UniSlav を起動/終了"}
 
 currentLang := lang_ja
-HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ModernSlavicKeyboard", "^1")
-HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ChurchSlavonicKeyboard", "^2")
+HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKModern", "^1")
+HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKChurch", "^2")
 Modifier := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Modifier", 1)
 StartUp := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "StartUp", 0)
 
@@ -68,7 +64,7 @@ createGui() {
     admin.SetFont("s10", "MS Pゴシック")
     setLang := admin.Add("DropDownList", , ["日本語","English"])
     setLang.Choose(currentLang.Lang)
-    admin.Add("Tab3","vTab", [currentLang.Tab1, currentLang.Tab2])
+    admin.Add("Tab3","vTab", currentLang.Tab)
     ;Tab1 settings
     admin.Add("Text",, currentLang.Text1) ; about settings
     admin.SetFont("bold",)
@@ -88,7 +84,10 @@ createGui() {
     admin.Add("Link", "x+10", '0.1.0`n`n'
                             '<a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public License, version 2</a>`n'
                             'Copyright © 2024 <a href="https://github.com/Mijadaj">Міја</a>`n`n'
-                            '<a href="https://github.com/Mijadaj/UniSlav">Repository</a>, <a href="https://github.com/Mijadaj/UniSlav/releases/latest">Latest release</a>')
+                            '<a href="https://github.com/Mijadaj/UniSlav">Repository</a>, '
+                            '<a href="https://github.com/Mijadaj/UniSlav/releases/latest">Latest release</a>,`n'
+                            '<a href="https://github.com/Mijadaj/UniSlav/wiki">Wiki (Key Layouts)</a>'
+    )
     ;bottom
     admin["Tab"].UseTab(0)
     admin.Add("Button", "vToggle Center", currentLang.Toggle)
@@ -119,14 +118,14 @@ createGui() {
             return
         }
         else {
-            RegWrite HKModern, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ModernSlavicKeyboard"
-            RegWrite HKChurch, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "ChurchSlavonicKeyboard"
+            RegWrite HKModern, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKModern"
+            RegWrite HKChurch, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKChurch"
             RegWrite Modifier, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Modifier"
             RegWrite StartUp, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "StartUp"
         }
         if StartUp
             FileCreateShortcut A_ScriptDir "\..\UniSlav.ahk", A_Startup "\UniSlav.lnk",,
-            , "Launch UniSlav UniSlav.ahk", A_ScriptDir "\..\icon\main.ico"
+            , "Launch UniSlav", A_ScriptDir "\..\icon\main.ico"
         else if FileExist(A_Startup "\UniSlav.lnk")
             FileDelete A_Startup "\UniSlav.lnk"
     }

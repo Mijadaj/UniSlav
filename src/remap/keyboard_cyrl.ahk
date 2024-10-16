@@ -24,6 +24,8 @@ IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "cyrl")
 #Include "modifier.ahk"
 
 ;row 1
+sc029::Send("ј")
++sc029::Send("Ј")
 vk0E & 1::
 {
    if GetKeyState("Shift")
@@ -422,17 +424,8 @@ vk0E & sc035::
    else
       Send("/")
 }
-sc073::Send("ј") ; present only in JIS keyboard
-+sc073::Send("Ј")
-vk0E & sc073::
-{
-   if GetKeyState("Shift")
-      Send("_")
-   else
-      Send("\")
- 
+
 ;row 5
-}
 Space::Send("{U+0020}") ;space
 ;phonetic extensions/superscript
 sc00D & f:: ;a
