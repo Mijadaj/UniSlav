@@ -24,7 +24,7 @@ IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "ctrl")
 SetTimer(ToolTip,-2000)
 ToolTip("UniSlav launched.")
 
-ahkPath := A_ScriptDir "\AutoHotkey64.exe"
+ahkPath := A_ScriptDir "\AutoHotkey64_UniSlav.exe"
 HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKModern", "^1")
 HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKChurch", "^2")
 

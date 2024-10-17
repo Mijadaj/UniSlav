@@ -27,34 +27,37 @@ DetectHiddenWindows(True)
 A_ScriptName := "UniSlav Manager"
 IniWrite(A_ScriptHwnd, A_Temp "\UniSlav.tmp", "HWND", "admin")
 
-lang_en := {Lang: "English"
-           ,Tab: ["Settings","Information"]
-           ,Text1: "Set the shortcut keys to launch each keyboard.`nPlease press a combination of Ctrl or Alt with a single key."
-           ,Text2: "Modern Slavic keyboard (Slavic Cyrillic, Slavic Latin)"
-           ,Text3: "Church Slavonic keyboard (Early Cyrillic, Glagolitic)"
-           ,Text4: "This shortcut key cannot be set."
-           ,Text5: "Modifier Key (for characters with diacritical marks such as Ў and Ą)"
-           ,Modifier: ["Muhenkan (sc07B)","Henkan (sc079)","Alt","AltGr","≣ Menu key"]
-           ,StartUp: "Automatically launch UniSlav on PC startup."
-           ,Save: "Save"
-           ,Toggle: "Launch / Exit UniSlav"}
-lang_ja := {Lang: "日本語"
-           ,Tab: ["設定","情報"]
-           ,Text1: "各キーボードを起動するためのショートカットキーを設定します。`nCtrl または Alt と1つのキーの組み合わせを押してください。"
-           ,Text2: "現代スラヴ語キーボード (Slavic Cyrillic, Slavic Latin)"
-           ,Text3: "教会スラヴ語キーボード (Early Cyrillic, Glagolitic)"
-           ,Text4: "このショートカットキーは設定できません。"
-           ,Text5: "修飾キー（Ў, Ą などのダイアクリティカル・マーク付き文字用）"
-           ,Modifier: ["無変換","変換","Alt","AltGr","≣ メニューキー"]
-           ,StartUp: "PC起動時に UniSlav を自動的に立ち上げる。"
-           ,Save: "保存"
-           ,Toggle: "UniSlav を起動/終了"}
+Lang := Map(
+    "en", {Lang: "English"
+    ,Tab: ["Settings","Information"]
+    ,Text1: "Set the shortcut keys to launch each keyboard.`nPlease press a combination of Ctrl or Alt with a single key."
+    ,Text2: "Modern Slavic keyboard (Slavic Cyrillic, Slavic Latin)"
+    ,Text3: "Church Slavonic keyboard (Early Cyrillic, Glagolitic)"
+    ,Text4: "This shortcut key cannot be set."
+    ,Text5: "Modifier Key (for characters with diacritical marks such as Ў and Ą)"
+    ,Modifier: ["Muhenkan (sc07B)","Henkan (sc079)","Alt","AltGr","≣ Menu key"]
+    ,StartUp: "Automatically launch UniSlav on PC startup."
+    ,Save: "Save"
+    ,Toggle: "Launch / Exit UniSlav"}
+    ,"ja", {Lang: "日本語"
+    ,Tab: ["設定","情報"]
+    ,Text1: "各キーボードを起動するためのショートカットキーを設定します。`nCtrl または Alt と1つのキーの組み合わせを押してください。"
+    ,Text2: "現代スラヴ語キーボード (Slavic Cyrillic, Slavic Latin)"
+    ,Text3: "教会スラヴ語キーボード (Early Cyrillic, Glagolitic)"
+    ,Text4: "このショートカットキーは設定できません。"
+    ,Text5: "修飾キー（Ў, Ą などのダイアクリティカル・マーク付き文字用）"
+    ,Modifier: ["無変換","変換","Alt","AltGr","≣ メニューキー"]
+    ,StartUp: "PC起動時に UniSlav を自動的に立ち上げる。"
+    ,Save: "保存"
+    ,Toggle: "UniSlav を起動/終了"}
+)
 
-currentLang := lang_ja
+currentLang := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Lang", "ja")
 HKModern := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKModern", "^1")
 HKChurch := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKChurch", "^2")
 Modifier := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Modifier", 1)
 StartUp := RegRead("HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "StartUp", 0)
+
 
 createGui()
 createGui() {
@@ -63,21 +66,21 @@ createGui() {
     admin.SetFont("s10", "Segoe UI")
     admin.SetFont("s10", "MS Pゴシック")
     setLang := admin.Add("DropDownList", , ["日本語","English"])
-    setLang.Choose(currentLang.Lang)
-    admin.Add("Tab3","vTab", currentLang.Tab)
+    setLang.Choose(Lang[currentLang].Lang)
+    admin.Add("Tab3","vTab", Lang[currentLang].Tab)
     ;Tab1 settings
-    admin.Add("Text",, currentLang.Text1) ; about settings
+    admin.Add("Text",, Lang[currentLang].Text1) ; about settings
     admin.SetFont("bold",)
-    admin.Add("Text",, currentLang.Text2) ; modern slavic keyboard
+    admin.Add("Text",, Lang[currentLang].Text2) ; modern slavic keyboard
     admin.Add("Hotkey", "vHKModern Limit3", HKModern)
-    admin.Add("Text",, currentLang.Text3) ; church slavonic keyboard
+    admin.Add("Text",, Lang[currentLang].Text3) ; church slavonic keyboard
     admin.Add("Hotkey", "vHKChurch Limit3", HKChurch)
     admin.Add("Text", "w250 h0 0x10",)
-    admin.Add("Text",, currentLang.Text5) ; set modifier key
-    admin.Add("DropDownList", "vModifier Choose" Modifier, currentLang.Modifier)
+    admin.Add("Text",, Lang[currentLang].Text5) ; set modifier key
+    admin.Add("DropDownList", "vModifier Choose" Modifier, Lang[currentLang].Modifier)
     admin.SetFont("norm",)
-    admin.Add("Checkbox", "vStartUp y+10 Checked" StartUp, currentLang.StartUp) ; startup setting
-    admin.Add("Button", "vSave Center", currentLang.Save)
+    admin.Add("Checkbox", "vStartUp y+10 Checked" StartUp, Lang[currentLang].StartUp) ; startup setting
+    admin.Add("Button", "vSave Center", Lang[currentLang].Save)
     ;Tab2 info
     admin["Tab"].UseTab(2)
     admin.Add("Text", ,"Version:`n`nSoftware License:`n`n`nGitHub:")
@@ -90,7 +93,7 @@ createGui() {
     )
     ;bottom
     admin["Tab"].UseTab(0)
-    admin.Add("Button", "vToggle Center", currentLang.Toggle)
+    admin.Add("Button", "vToggle Center", Lang[currentLang].Toggle)
     ;reload Gui
     setLang.OnEvent("Change",lang_change)
     admin.Show("Center")
@@ -101,9 +104,9 @@ createGui() {
 
     lang_change(*) {
         if setLang.Text = "日本語"
-            currentLang := lang_ja
+            currentLang := "ja"
         else if setLang.Text = "English"
-            currentLang := lang_en
+            currentLang := "en"
         admin.Destroy
         createGui()
     }
@@ -114,10 +117,11 @@ createGui() {
         StartUp := admin["StartUp"].Value
         if !HKModern || !HKChurch {
             admin.Opt("+OwnDialogs")
-            MsgBox currentLang.Text4, A_ScriptName, "48"
+            MsgBox Lang[currentLang].Text4, A_ScriptName, "48"
             return
         }
         else {
+            RegWrite currentLang, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Lang"
             RegWrite HKModern, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKModern"
             RegWrite HKChurch, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "HKChurch"
             RegWrite Modifier, "REG_SZ", "HKEY_CURRENT_USER\Software\UniSlav\Hotkey", "Modifier"
@@ -138,7 +142,7 @@ createGui() {
             ToolTip()
         }
         else {
-            Run A_ScriptDir "\..\AutoHotkey64.exe" " ..\UniSlav.ahk"
+            Run A_ScriptDir "\..\AutoHotkey64_UniSlav.exe" " ..\UniSlav.ahk"
         }
     }
 }
