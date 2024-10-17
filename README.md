@@ -14,7 +14,7 @@ In that case, please adjust the hotkeys as needed.
 1. Download the installer from the [Latest release](https://github.com/Mijadaj/UniSlav/releases/latest).
 1. Run the installer and follow the on-screen instructions.
 
-Please note that security software may issue a warning. In such cases, you can decide whether to proceed with the installation at your discretion. You can verify the safety of the program from [VirusTotal](https://www.example.com/).
+Please note that security software may issue a warning. In such cases, you can decide whether to proceed with the installation at your discretion. You can verify the safety of the program from [VirusTotal]([https://www.example.com/](https://www.virustotal.com/gui/collection/9de1861f5106060d44fd8b21743b46a1bfbc6f91dcd5989f24de09a0363ffb9d/iocs)).
 
 ## Usage
 
