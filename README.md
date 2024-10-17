@@ -1,7 +1,5 @@
 # UniSlav
 
-[Latest release](https://github.com/Mijadaj/ahk-slavic-keyboard/releases/latest)
-
 ## Features
 
 - Allows typing most of the characters used in Slavic languages, including Cyrillic, Latin, and Glagolitic scripts.
@@ -10,12 +8,18 @@
 **Note:**
 The developer usually uses a 106/109 Japanese keyboard and has developed this AHK script accordingly, so it may not be directly applicable to keyboards for other languages.
 In that case, please adjust the hotkeys as needed.
-In particular, note that `sc07B` (the *muhenkan* 無変換 key) is used as a default modifier key.
+
+## Installation
+
+1. Download the installer from the [Latest release](https://github.com/Mijadaj/UniSlav/releases/latest).
+1. Run the installer and follow the on-screen instructions.
+
+Please note that security software may issue a warning. In such cases, you can decide whether to proceed with the installation at your discretion. You can verify the safety of the program from [VirusTotal](https://www.example.com/).
 
 ## Usage
 
 1. Open **UniSlav Manager** and click "Launch".  
-1. Each keyboard is activated or terminated by the following default hotkeys.
+1. Each keyboard can be activated or deactivated using the following hotkeys, which can be customized in the 'UniSlav Manager'.
     - **`Ctrl + 1`** for Modern Slavic languages  
     **Slavic Cyrillic**  
     Russian, Ukrainian, Rusyn, Belarusian, Bulgarian, Macedonian, Serbian *etc.*  
