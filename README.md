@@ -1,5 +1,7 @@
 # UniSlav
 
+See also [Wiki](https://github.com/Mijadaj/UniSlav/wiki).
+
 ## Features
 
 - Allows typing most of the characters used in Slavic languages, including Cyrillic, Latin, and Glagolitic scripts.
@@ -42,7 +44,8 @@ Please see the [LICENSE file](LICENSE) for more details.
 This software includes:
 
 - **AutoHotkey64.exe**, which is also licensed under the GPLv2.
-You can find the source code for AutoHotkey at: [https://github.com/AutoHotkey/AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
+You can find the source code for AutoHotkey at:
+<https://github.com/AutoHotkey/AutoHotkey>.
 - **config.exe**, which is compiled from AHK file using [AHK2EXE](https://github.com/AutoHotkey/Ahk2Exe).
 The source code can be found in [config.ahk](src/config/config.ahk).
 
