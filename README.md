@@ -1,6 +1,6 @@
 # UniSlav
 
-<img src="https://repository-images.githubusercontent.com/576129241/8f6e8523-3c46-4c27-bb85-208bace37b43" alt="Description of UniSlav" width="640" height="320">
+<img src="https://repository-images.githubusercontent.com/576129241/8f6e8523-3c46-4c27-bb85-208bace37b43" alt="Description of UniSlav" width="640">
 
 See also [Wiki](https://github.com/Mijadaj/UniSlav/wiki).
 
